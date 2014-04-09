@@ -35,6 +35,8 @@ from ControlCatalog import ControlCatalog
 from Resources import Resources
 from VulnerabilityCatalog import VulnerabilityCatalog
 
+LANG="en"
+
 class RiskManagement:
 
 	def loadManifestFile(self, manifestFileName):
@@ -249,13 +251,13 @@ class RiskManagement:
 		p.append(Paragraph(u"Izvori informacija", styles['Heading1']))
 
 		for iS in self.getInformationSources():
-			p.append(Paragraph(iS.getName(lang="hr"), styles['Heading4']))
+			p.append(Paragraph(iS.getName(lang=LANG), styles['Heading4']))
 			p.append(Paragraph(u"Tip informacijskog izvora: {}".format(iS.getType()), styles['BodyText']))
 			p.append(Paragraph(u"Datum nastanka: {}".format(iS.getDate()), styles['BodyText']))
 
 			p.append(Paragraph(u"Opis", styles['Heading5']))
 			try:
-				p.append(Paragraph(iS.getDescription(lang="hr"), styles['BodyText']))
+				p.append(Paragraph(iS.getDescription(lang=LANG), styles['BodyText']))
 			except KeyError:
 				p.append(Paragraph("Nema opisa", styles['BodyText']))
 
@@ -289,7 +291,7 @@ class RiskManagement:
 			p.append(Paragraph(u"{}".format(t), styles['Heading4']))
 			p.append(Paragraph(u"Izvori informacija", styles['Heading5']))
 			for iS in iSByT[t]:
-				p.append(Paragraph(u"{}".format(iS.getName(lang="hr")), styles['BodyText']))
+				p.append(Paragraph(u"{}".format(iS.getName(lang=LANG)), styles['BodyText']))
 
 		return p
 
@@ -306,7 +308,7 @@ class RiskManagement:
 			p.append(Paragraph(u"{}".format(v), styles['Heading4']))
 			p.append(Paragraph(u"Izvori informacija", styles['Heading5']))
 			for iS in iSByV[v]:
-				p.append(Paragraph(u"{}".format(iS.getName(lang="hr")), styles['BodyText']))
+				p.append(Paragraph(u"{}".format(iS.getName(lang=LANG)), styles['BodyText']))
 
 		return p
 
@@ -325,7 +327,7 @@ class RiskManagement:
 		row = 0
 		for resource in identifiedRisks:
 			riskValue = self.getRiskForResource(resource)
-			tableData.append((resource.getName(lang="hr"), riskValue))
+			tableData.append((resource.getName(lang=LANG), riskValue))
 			row += 1
 			if riskValue >= highRiskThreshold:
 				tableStyle.append(('TEXTCOLOR',(0,row),(-1,row),colors.red))
@@ -344,7 +346,7 @@ def dumpInformationSources(riskManagement):
 	Dump all information sources
 	"""
 	for iS in riskManagement.getInformationSources():
-		print(u"{:70} {} {}".format(cap(iS.getName(lang="hr"), 70), iS.getDate(), iS.getType()))
+		print(u"{:70} {} {}".format(cap(iS.getName(lang=LANG), 70), iS.getDate(), iS.getType()))
 
 def dumpThreats(riskManagement):
 	"""
@@ -355,7 +357,7 @@ def dumpThreats(riskManagement):
 	for t in iSByT:
 		print u"{}".format(t)
 		for iS in iSByT[t]:
-			print(u"\t{:70} {} {}".format(cap(iS.getName(lang="hr"), 70), iS.getDate(), iS.getType()))
+			print(u"\t{:70} {} {}".format(cap(iS.getName(lang=LANG), 70), iS.getDate(), iS.getType()))
 
 def dumpVulnerabilities(riskManagement):
 	"""
@@ -366,28 +368,28 @@ def dumpVulnerabilities(riskManagement):
 	for v in iSByV:
 		print u"{}".format(v)
 		for iS in iSByV[v]:
-			print(u"\t{:70} {} {}".format(cap(iS.getName(lang="hr"), 70), iS.getDate(), iS.getType()))
+			print(u"\t{:70} {} {}".format(cap(iS.getName(lang=LANG), 70), iS.getDate(), iS.getType()))
 
 def dumpIdentifiedThreats(riskManagement):
 
 	for iT in riskManagement.getIdentifiedThreats():
-		print u"{:65} {:30} {:30} {:5} {:5}".format(cap(iT.getThreatName(lang="hr"), 65), cap(iT.getThreatSourceName(lang="hr"), 30), cap(iT.getResourceName(lang="hr"), 30), iT.getProbability(), iT.getImpact())
+		print u"{:65} {:30} {:30} {:5} {:5}".format(cap(iT.getThreatName(lang=LANG), 65), cap(iT.getThreatSourceName(lang=LANG), 30), cap(iT.getResourceName(lang=LANG), 30), iT.getProbability(), iT.getImpact())
 
 def dumpIdentifiedVulnerabilities(riskManagement):
 
 	for iV in riskManagement.getIdentifiedVulnerabilities():
-		print u"{:65} {:30} {:5}".format(cap(iV.getVulnerabilityName(lang="hr"), 65), cap(iV.getResourceName(lang="hr"), 30), iV.getSeverity())
+		print u"{:65} {:30} {:5}".format(cap(iV.getVulnerabilityName(lang=LANG), 65), cap(iV.getResourceName(lang=LANG), 30), iV.getSeverity())
 
 def dumpIdentifiedRisks(riskManagement):
 
 	for iR in riskManagement.getIdentifiedRisks():
-		print u"{:35} {:55} {:55} {:15} {}".format(cap(iR.getResourceName(), 35), cap(iR.getVulnerabilityName(), 55), cap(iR.getThreatName(), 55), cap(iR.getThreatSourceName(lang = "hr"), 15), iR.getValue())
+		print u"{:35} {:55} {:55} {:15} {}".format(cap(iR.getResourceName(), 35), cap(iR.getVulnerabilityName(), 55), cap(iR.getThreatName(), 55), cap(iR.getThreatSourceName(lang = LANG), 15), iR.getValue())
 
 def dumpIdentifiedRisksByResource(riskManagement):
 
 	print
 	for resource in riskManagement.getIdentifiedRisksByResource():
-		print u"{:45} {}".format(resource.getName(lang="hr"),
+		print u"{:45} {}".format(resource.getName(lang=LANG),
 				riskManagement.getRiskForResource(resource))
 
 def dumpIdentifiedRisksByResourceHierarchy(riskManagement, startingResourceId, indent = ""):
@@ -406,17 +408,17 @@ def dumpIdentifiedRiskForOrganization(riskManagement):
 
 	print
 	resource = riskManagement.resources.getResourceById("r00000")
-	print u"{:45} {}".format(resource.getName(lang="hr"), riskManagement.getRiskForResource(resource))
+	print u"{:45} {}".format(resource.getName(lang=LANG), riskManagement.getRiskForResource(resource))
 	resource = riskManagement.resources.getResourceById("r00013")
-	print u"{:45} {}".format(resource.getName(lang="hr"), riskManagement.getRiskForResource(resource))
+	print u"{:45} {}".format(resource.getName(lang=LANG), riskManagement.getRiskForResource(resource))
 	resource = riskManagement.resources.getResourceById("r00153")
-	print u"{:45} {}".format(resource.getName(lang="hr"), riskManagement.getRiskForResource(resource))
+	print u"{:45} {}".format(resource.getName(lang=LANG), riskManagement.getRiskForResource(resource))
 
 def dumpIdentifiedRiskForResource(riskManagement, resource):
 
 	print
 	resource = riskManagement.resources.getResourceById(resource)
-	print u"{:45} {}".format(resource.getName(lang="hr"), riskManagement.getRiskForResource(resource, depth=0))
+	print u"{:45} {}".format(resource.getName(lang=LANG), riskManagement.getRiskForResource(resource, depth=0))
 
 def main(xmlDir):
 	riskManagement = RiskManagement(xmlDir)

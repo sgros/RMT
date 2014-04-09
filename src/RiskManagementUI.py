@@ -26,7 +26,7 @@ from PyQt4 import uic
 
 from RiskManagement import RiskManagement
 
-LANG="hr"
+LANG="en"
 
 class InformationSourcesUI:
 	"""
@@ -577,11 +577,13 @@ class RiskManagementUI(QMainWindow):
 
 		QMainWindow.__init__(self)
 
-		self.main_window = uic.loadUi('ui/main_window.ui')
-		self.controls_catalog = uic.loadUi('ui/controls_catalog.ui')
-		self.threat_sources = uic.loadUi('ui/threat_sources.ui')
-		self.threats = uic.loadUi('ui/threats.ui')
-		self.vulnerabilities = uic.loadUi('ui/vulnerabilities.ui')
+		basepath = os.path.dirname(__file__) + "/"
+
+		self.main_window = uic.loadUi(basepath + 'ui/main_window.ui')
+		self.controls_catalog = uic.loadUi(basepath + 'ui/controls_catalog.ui')
+		self.threat_sources = uic.loadUi(basepath + 'ui/threat_sources.ui')
+		self.threats = uic.loadUi(basepath + 'ui/threats.ui')
+		self.vulnerabilities = uic.loadUi(basepath + 'ui/vulnerabilities.ui')
 
 		self.informationSourcesUI = InformationSourcesUI(self.main_window, self.riskManagement)
 		self.resourcesWidget = ResourcesWidget(self.main_window, self.riskManagement)

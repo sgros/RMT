@@ -154,6 +154,7 @@
 
 	<information_source id="isp00005" type="webpage" date="20130913">
 		<title lang="hr">Krađa novaca iz AKD</title>
+		<title lang="en">Money stealing from AKD</title>
 		<url>http://www.jutarnji.hr/iz-republike-srpske-provalili-sustav-najcuvanije-hrvatske-agencije-i-ukrali-1-8-milijuna-/1126010/</url>
 
 		<threat-sources>
@@ -181,6 +182,7 @@
 
 	<information_source id="isp00004" type="webpage" subid="" date="20140328">
 		<title lang="en">Upozorenje svim vlasnicima računala u Hrvatskoj</title>
+		<title lang="hr">Warning to all computer users in Croatia</title>
 		<url>http://www.tportal.hr/scitech/tehno/324116/Bankari-izdali-upozorenje-vlasnicima-racunala-u-Hrvatskoj.html</url>
 		<description lang="hr">
 
@@ -215,28 +217,6 @@
 		</risks>
 	</information_source>
 
-	<information_source id="isp00003" type="webpage" subid="" date="20131230">
-		<title lang="en">Cash machines raided with infected USB sticks</title>
-		<url>http://www.bbc.co.uk/news/technology-25550512</url>
-
-		<risks>
-			<risk resource-id="r00162">
-				<threats>
-					<threat threat-source-id="ts00001" threat-id="nist800-31r1:t0008" threat-source-relevance="7" impact="5" />
-					<threat threat-source-id="ts00001" threat-id="nist800-31r1:t0013" threat-source-relevance="7" impact="5" />
-					<threat threat-source-id="ts00001" threat-id="nist800-31r1:t0014" threat-source-relevance="7" impact="5" />
-					<threat threat-source-id="ts00001" threat-id="nist800-31r1:t0015" threat-source-relevance="7" impact="5" />
-					<threat threat-source-id="ts00001" threat-id="nist800-31r1:t0016" threat-source-relevance="7" impact="5" />
-					<threat threat-source-id="ts00001" threat-id="nist800-31r1:t0018" threat-source-relevance="7" impact="5" />
-					<threat threat-source-id="ts00001" threat-id="nist800-31r1:t0019" threat-source-relevance="7" impact="5" />
-					<threat threat-source-id="ts00001" threat-id="nist800-31r1:t0039" threat-source-relevance="7" impact="5" />
-					<threat threat-source-id="ts00001" threat-id="nist800-31r1:t0040" threat-source-relevance="7" impact="5" />
-					<threat threat-source-id="ts00001" threat-id="nist800-31r1:t0041" threat-source-relevance="7" impact="5" />
-				</threats>
-			</risk>
-		</risks>
-	</information_source>
-
 	<information_source id="isp00002" type="microsoft_advisory" date="20131008">
 		<title lang="en">Microsoft Security Bulletin MS13-083 - Critical</title>
 		<microsoft_advisory id="MS13-083" url="http://technet.microsoft.com/en-us/security/bulletin/ms13-083" />
@@ -267,7 +247,7 @@
 
 		<!-- Log history -->
 		<changelogs>
-			<changelog date="20140317" user="sgros@sistemnet.hr">Inicijalni unos.</changelog>
+			<changelog lang="hr" date="20140317" user="sgros@sistemnet.hr">Inicijalni unos.</changelog>
 		</changelogs>
 	</information_source>
 
@@ -301,7 +281,7 @@
 
 		<!-- Log history -->
 		<changelogs>
-			<changelog date="20140317" user="sgros@sistemnet.hr">Inicijalni unos.</changelog>
+			<changelog lang="hr" date="20140317" user="sgros@sistemnet.hr">Inicijalni unos.</changelog>
 		</changelogs>
 	</information_source>
 
@@ -335,7 +315,7 @@
 
 		<!-- Log history -->
 		<changelogs>
-			<changelog date="20140317" user="sgros@sistemnet.hr">Inicijalni unos.</changelog>
+			<changelog lang="hr" date="20140317" user="sgros@sistemnet.hr">Inicijalni unos.</changelog>
 		</changelogs>
 	</information_source>
 

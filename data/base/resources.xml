@@ -233,10 +233,12 @@ USED BY. Similar to maintains relationship but without elevated privileges.
 
 	<resource id="r00000" classification="public">
 		<name lang="hr">Tvrtka</name>
+		<name lang="en">Company</name>
 	</resource>
 
 	<resource id="r00012" classification="public">
 		<name lang="hr">Reputacija</name>
+		<name lang="en">Reputation</name>
 	</resource>
 
 	<!-- ===================================================================
@@ -247,16 +249,19 @@ USED BY. Similar to maintains relationship but without elevated privileges.
 
 	<resource id="r00011" classification="public">
 		<name lang="hr">Informacijska imovina</name>
+		<name lang="en">Information assets</name>
 		<ispartof resourceid="r00000" share_type="percent" share="10" />
 	</resource>
 
 	<resource id="r00100" classification="public">
-		<name lang="hr">Tajne informacije i podaci tvrtke</name>
+		<name lang="hr">Tajne informacije i podaci</name>
+		<name lang="en">Classified information and data</name>
 		<ispartof resourceid="r00011" share_type="percent" share="50" />
 	</resource>
 
 	<resource id="r00103" classification="public">
 		<name lang="hr">Javne informacije i podaci tvrtke</name>
+		<name lang="en">Unclassified information and data</name>
 		<ispartof resourceid="r00011" share_type="percent" share="1" />
 	</resource>
 
@@ -267,43 +272,51 @@ USED BY. Similar to maintains relationship but without elevated privileges.
 	==================================================================== -->
 
 	<resource id="r00104" classification="public">
-		<name lang="hr">Procesi</name>
+		<name lang="hr">Poslovni procesi</name>
+		<name lang="en">Business rocesses</name>
 		<ispartof resourceid="r00000" share="1" />
 	</resource>
 
 	<resource id="r00174" classification="public">
 		<name lang="hr">Izrada pričuvne kopije</name>
+		<name lang="en">Backup</name>
 		<ispartof resourceid="r00104" share="1" />
 	</resource>
 
 	<resource id="r00175" classification="public">
 		<name lang="hr">Upravljanje rizicima</name>
+		<name lang="en">Risk management</name>
 		<ispartof resourceid="r00104" share="1" />
 	</resource>
 
 	<resource id="r00176" classification="public">
 		<name lang="hr">Klasifikacija informacija</name>
+		<name lang="en">Information classification</name>
 		<ispartof resourceid="r00104" share="1" />
 	</resource>
 
 	<resource id="r00177" classification="public">
 		<name lang="hr">Upravljanje sistemskim i operativnih zapisima</name>
+		<name lang="en">Log management</name>
 		<ispartof resourceid="r00104" share="1" />
 	</resource>
 
 	<resource id="r00178" classification="public">
 		<name lang="hr">Upravljanje pravima pristupa</name>
+		<name lang="en">Access management</name>
 		<ispartof resourceid="r00104" share="1" />
 	</resource>
 
 	<resource id="r00179" classification="public">
 		<name lang="hr">Planiranje oporavka</name>
+		<name lang="en">Business recovery</name>
 		<ispartof resourceid="r00104" share="1" />
 	</resource>
 
 	<!-- Upravljanje incidentima - uloge i resursi -->
 	<resource id="r00173" classification="public">
 		<name lang="hr">Upravljanje incidentima</name>
+		<name lang="en">Incident handling</name>
 		<ispartof resourceid="r00104" share="1" />
 	</resource>
 
@@ -315,11 +328,13 @@ USED BY. Similar to maintains relationship but without elevated privileges.
 
 	<resource id="r00105" classification="public">
 		<name lang="hr">Sistemska sala</name>
+		<name lang="en">Data center</name>
 		<ispartof resourceid="r00000" />
 	</resource>
 
 	<resource id="r00107" classification="public">
 		<name lang="hr">Pričuvna lokacija</name>
+		<name lang="en">Disaster recovery location</name>
 		<ispartof resourceid="r00000" />
 	</resource>
 
@@ -330,85 +345,89 @@ USED BY. Similar to maintains relationship but without elevated privileges.
 	==================================================================== -->
 
 	<resource id="r00013" classification="public">
-		<name lang="hr">Informacijski sustav tvrtke</name>
+		<name lang="hr">Informacijski sustav</name>
+		<name lang="en">Information system</name>
 		<ispartof resourceid="r00000" />
 	</resource>
 
 	<resource id="r00111" classification="classified">
 		<name lang="hr">Telefonski podsustav</name>
+		<name lang="en">Telephone system</name>
 		<ispartof resourceid="r00013" />
 	</resource>
 
 	<resource id="r00166" classification="public">
 		<name lang="hr">Poslužitelji</name>
+		<name lang="en">Servers</name>
 		<ispartof resourceid="r00013" />
 	</resource>
 
 	<resource id="r00106" classification="public">
 		<name lang="hr">Radne stanice</name>
+		<name lang="en">Workstations</name>
 		<ispartof resourceid="r00013" />
 	</resource>
 
 	<resource id="r00112" classification="classified">
 		<name lang="hr">Prijenosna računala</name>
+		<name lang="en">Laptops</name>
 		<ispartof resourceid="r00106" />
 	</resource>
 
 	<resource id="r00114" classification="classified">
 		<name lang="hr">Stolna računala</name>
+		<name lang="en">Desktops</name>
 		<ispartof resourceid="r00106" />
 	</resource>
 
 	<resource id="r00116" classification="classified">
 		<name lang="hr">Pametni telefoni i tableti</name>
+		<name lang="en">Smartphones and tablets</name>
 		<ispartof resourceid="r00013" />
 	</resource>
 
 	<resource id="r00123" classification="classified">
 		<name lang="hr">Sustav za pohranjivanje sistemskih i operativnih zapisa</name>
-		<ispartof resourceid="r00013" />
-	</resource>
-
-	<resource id="r00162" classification="public">
-		<name lang="hr">Bankomat</name>
-		<ispartof resourceid="r00013" />
-	</resource>
-
-	<resource id="r00125" classification="classified">
-		<name lang="hr">Internet bankarstvo</name>
+		<name lang="en">Log management system</name>
 		<ispartof resourceid="r00013" />
 	</resource>
 
 	<resource id="r00127" classification="classified">
 		<name lang="hr">Sustav za pričuvnu pohranu</name>
+		<name lang="en">Backup system</name>
 		<ispartof resourceid="r00013" />
 	</resource>
 
 	<resource id="r00132" classification="classified">
 		<name lang="hr">Sustav elektroničke pošte</name>
+		<name lang="en">Mail system</name>
 		<isin resourceid="r00105" />
 		<ispartof resourceid="r00013" />
 	</resource>
 
 	<resource id="r00143" classification="public">
 		<name lang="hr">Pisači</name>
+		<name lang="en">Printers</name>
 		<ispartof resourceid="r00013" />
 	</resource>
 
 	<resource id="r00144" classification="public">
 		<name lang="hr">Adobe Reader</name>
+		<name lang="en">Adobe Reader</name>
 		<executeson resourceid="r00106" />
 		<ispartof resourceid="r00106" />
 	</resource>
 
 	<resource id="r00145" classification="public">
 		<name lang="hr">Adobe Flash</name>
+		<name lang="en">Adobe Flash</name>
 		<executeson resourceid="r00106" />
 		<ispartof resourceid="r00106" />
 	</resource>
 
 	<resource id="r00149" classification="public">
 		<name lang="hr">Operacijski sustavi</name>
+		<name lang="en">Operating systems</name>
 		<executeson resourceid="r00106" />
 		<executeson resourceid="r00166" />
 		<ispartof resourceid="r00013" />
@@ -416,12 +435,14 @@ USED BY. Similar to maintains relationship but without elevated privileges.
 
 	<resource id="r00151" classification="public">
 		<name lang="hr">Linux</name>
+		<name lang="en">Linux</name>
 		<executeson resourceid="r00166" />
 		<ispartof resourceid="r00013" />
 	</resource>
 
 	<resource id="r00152" classification="public">
 		<name lang="hr">Adobe Software</name>
+		<name lang="en">Adobe Software</name>
 		<ispartof resourceid="r00013" />
 		<!--
 		     Confidentiality isn't at all important, everyone knows we have Adobe. 
@@ -433,47 +454,55 @@ USED BY. Similar to maintains relationship but without elevated privileges.
 
 	<resource id="r00147" classification="public">
 		<name lang="hr">Internet explorer</name>
+		<name lang="en">Internet explorer</name>
 		<executeson resourceid="r00106" />
 		<ispartof resourceid="r00148" />
 	</resource>
 
 	<resource id="r00148" classification="public">
 		<name lang="hr">Windows OS</name>
+		<name lang="en">Windows OS</name>
 		<executeson resourceid="r00106" />
 		<ispartof resourceid="r00013" />
 	</resource>
 
 	<resource id="r00163" classification="public">
 		<name lang="hr">Windows XP</name>
+		<name lang="en">Windows XP</name>
 		<executeson resourceid="r00106" />
 		<ispartof resourceid="r00148" />
 	</resource>
 
 	<resource id="r00169" classification="public">
 		<name lang="hr">Windows 7</name>
+		<name lang="en">Windows 7</name>
 		<executeson resourceid="r00106" />
 		<ispartof resourceid="r00148" />
 	</resource>
 
 	<resource id="r00170" classification="public">
 		<name lang="hr">Windows 8</name>
+		<name lang="en">Windows 8</name>
 		<executeson resourceid="r00106" />
 		<ispartof resourceid="r00148" />
 	</resource>
 
 	<resource id="r00171" classification="public">
 		<name lang="hr">Windows 8.1</name>
+		<name lang="en">Windows 8.1</name>
 		<executeson resourceid="r00106" />
 		<ispartof resourceid="r00148" />
 	</resource>
 
 	<resource id="r00164" classification="public">
 		<name lang="hr">Android</name>
+		<name lang="en">Android</name>
 		<ispartof resourceid="r00013" />
 	</resource>
 
 	<resource id="r00165" classification="public">
 		<name lang="hr">iOS</name>
+		<name lang="en">iOS</name>
 		<ispartof resourceid="r00013" />
 	</resource>
 
@@ -496,11 +525,12 @@ USED BY. Similar to maintains relationship but without elevated privileges.
 	-->
 
 	<resource id="r30000" classification="public">
-		<name lang="hr">Adversarial</name>
+		<name lang="en">Adversarial</name>
 	</resource>
 
 	<resource id="r30001" classification="public">
 		<name lang="hr">Pojedinac</name>
+		<name lang="en">Individual</name>
 		<ispartof resourceid="r30000" />
 	</resource>
 
@@ -525,17 +555,20 @@ USED BY. Similar to maintains relationship but without elevated privileges.
 	</resource>
 
 	<resource id="r30006" classification="public">
-		<name lang="en">Klijent</name>
+		<name lang="hr">Klijent</name>
+		<name lang="en">Client</name>
 		<ispartof resourceid="r30001" />
 	</resource>
 
 	<resource id="r30007" classification="public">
 		<name lang="hr">Grupa</name>
+		<name lang="en">Group</name>
 		<ispartof resourceid="r30000" />
 	</resource>
 
 	<resource id="r30008" classification="public">
 		<name lang="hr">Ad hoc grupa</name>
+		<name lang="en">Ad hoc group</name>
 		<ispartof resourceid="r30007" />
 	</resource>
 
@@ -547,6 +580,7 @@ USED BY. Similar to maintains relationship but without elevated privileges.
 
 	<resource id="r30010" classification="public">
 		<name lang="hr">Organizacija</name>
+		<name lang="en">Organization</name>
 		<ispartof resourceid="r30000" />
 	</resource>
 

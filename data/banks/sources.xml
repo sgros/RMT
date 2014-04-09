@@ -1,0 +1,28 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<information_sources>
+
+	<information_source id="isp00003" type="webpage" subid="" date="20131230">
+		<title lang="en">Cash machines raided with infected USB sticks</title>
+		<url>http://www.bbc.co.uk/news/technology-25550512</url>
+
+		<risks>
+			<risk resource-id="r00162">
+				<threats>
+					<threat threat-source-id="ts00001" threat-id="nist800-31r1:t0008" threat-source-relevance="7" impact="5" />
+					<threat threat-source-id="ts00001" threat-id="nist800-31r1:t0013" threat-source-relevance="7" impact="5" />
+					<threat threat-source-id="ts00001" threat-id="nist800-31r1:t0014" threat-source-relevance="7" impact="5" />
+					<threat threat-source-id="ts00001" threat-id="nist800-31r1:t0015" threat-source-relevance="7" impact="5" />
+					<threat threat-source-id="ts00001" threat-id="nist800-31r1:t0016" threat-source-relevance="7" impact="5" />
+					<threat threat-source-id="ts00001" threat-id="nist800-31r1:t0018" threat-source-relevance="7" impact="5" />
+					<threat threat-source-id="ts00001" threat-id="nist800-31r1:t0019" threat-source-relevance="7" impact="5" />
+					<threat threat-source-id="ts00001" threat-id="nist800-31r1:t0039" threat-source-relevance="7" impact="5" />
+					<threat threat-source-id="ts00001" threat-id="nist800-31r1:t0040" threat-source-relevance="7" impact="5" />
+					<threat threat-source-id="ts00001" threat-id="nist800-31r1:t0041" threat-source-relevance="7" impact="5" />
+				</threats>
+			</risk>
+		</risks>
+	</information_source>
+
+</information_sources>
+

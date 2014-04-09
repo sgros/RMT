@@ -8,30 +8,49 @@
 
 	<resource baseid="r00000" classification="public">
 		<name lang="hr">Banka</name>
+		<name lang="en">Bank</name>
 	</resource>
 
 	<resource id="banking:r00000" classification="public">
 		<name lang="hr">Swift</name>
+		<name lang="en">Swift</name>
 	</resource>
 
 	<resource id="banking:r00001" classification="public">
 		<name lang="hr">Bloomberg</name>
+		<name lang="en">Bloomberg</name>
 	</resource>
 
 	<resource id="banking:r00002" classification="public">
 		<name lang="hr">Reuters</name>
+		<name lang="en">Reuters</name>
 	</resource>
 
 	<resource id="banking:r00003" classification="public">
 		<name lang="hr">NKS</name>
+		<name lang="en">NKS</name>
 	</resource>
 
 	<resource id="banking:r00004" classification="public">
 		<name lang="hr">FINA</name>
+		<name lang="en">FINA</name>
 	</resource>
 
 	<resource id="banking:r00005" classification="public">
 		<name lang="hr">MBU</name>
+		<name lang="en">MBU</name>
+	</resource>
+
+	<resource id="r00162" classification="public">
+		<name lang="hr">Bankomat</name>
+		<name lang="en">ATM</name>
+		<ispartof resourceid="r00013" />
+	</resource>
+
+	<resource id="r00125" classification="classified">
+		<name lang="hr">Internet bankarstvo</name>
+		<name lang="en">Internet banking</name>
+		<ispartof resourceid="r00013" />
 	</resource>
 
 </resources>
