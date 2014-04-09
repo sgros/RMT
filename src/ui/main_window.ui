@@ -1,0 +1,533 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ui version="4.0">
+ <class>MainWindow</class>
+ <widget class="QMainWindow" name="MainWindow">
+  <property name="geometry">
+   <rect>
+    <x>0</x>
+    <y>0</y>
+    <width>1343</width>
+    <height>850</height>
+   </rect>
+  </property>
+  <property name="windowTitle">
+   <string>Risk Management Tool</string>
+  </property>
+  <widget class="QWidget" name="centralwidget">
+   <layout class="QHBoxLayout" name="horizontalLayout">
+    <item>
+     <layout class="QVBoxLayout" name="verticalLayout">
+      <item>
+       <widget class="QTabWidget" name="tabWidget_RiskManagement">
+        <property name="currentIndex">
+         <number>1</number>
+        </property>
+        <widget class="QWidget" name="tab_InformationSources">
+         <attribute name="title">
+          <string>Information Sources</string>
+         </attribute>
+         <layout class="QGridLayout" name="gridLayout">
+          <item row="0" column="0" rowspan="5">
+           <widget class="QTreeWidget" name="InformationSourcesWidget">
+            <property name="autoScroll">
+             <bool>true</bool>
+            </property>
+            <attribute name="headerDefaultSectionSize">
+             <number>90</number>
+            </attribute>
+            <column>
+             <property name="text">
+              <string>Date</string>
+             </property>
+            </column>
+            <column>
+             <property name="text">
+              <string>Title</string>
+             </property>
+            </column>
+           </widget>
+          </item>
+          <item row="0" column="1">
+           <widget class="QLabel" name="label">
+            <property name="font">
+             <font>
+              <pointsize>12</pointsize>
+              <weight>75</weight>
+              <italic>true</italic>
+              <bold>true</bold>
+              <strikeout>false</strikeout>
+             </font>
+            </property>
+            <property name="text">
+             <string>Properties</string>
+            </property>
+           </widget>
+          </item>
+          <item row="1" column="1">
+           <widget class="QTreeWidget" name="InformationSourcesWidget_Properties">
+            <property name="autoScroll">
+             <bool>true</bool>
+            </property>
+            <attribute name="headerDefaultSectionSize">
+             <number>200</number>
+            </attribute>
+            <column>
+             <property name="text">
+              <string notr="true">Property</string>
+             </property>
+            </column>
+            <column>
+             <property name="text">
+              <string>Value</string>
+             </property>
+            </column>
+           </widget>
+          </item>
+          <item row="2" column="1">
+           <widget class="QLabel" name="label_10">
+            <property name="font">
+             <font>
+              <pointsize>12</pointsize>
+              <weight>75</weight>
+              <italic>true</italic>
+              <bold>true</bold>
+             </font>
+            </property>
+            <property name="text">
+             <string>Risks</string>
+            </property>
+           </widget>
+          </item>
+          <item row="3" column="1">
+           <widget class="QTreeWidget" name="InformationSourcesWidget_Risks">
+            <property name="autoScroll">
+             <bool>true</bool>
+            </property>
+            <column>
+             <property name="text">
+              <string>Resource</string>
+             </property>
+            </column>
+            <column>
+             <property name="text">
+              <string>Value</string>
+             </property>
+            </column>
+           </widget>
+          </item>
+         </layout>
+        </widget>
+        <widget class="QWidget" name="tab_Resources">
+         <attribute name="title">
+          <string>Resources</string>
+         </attribute>
+         <layout class="QHBoxLayout" name="horizontalLayout_2">
+          <item>
+           <widget class="QTreeWidget" name="ResourcesWidget">
+            <property name="autoScroll">
+             <bool>true</bool>
+            </property>
+            <column>
+             <property name="text">
+              <string>Resource</string>
+             </property>
+            </column>
+            <column>
+             <property name="text">
+              <string>Value</string>
+             </property>
+            </column>
+            <column>
+             <property name="text">
+              <string>Risk</string>
+             </property>
+            </column>
+           </widget>
+          </item>
+          <item>
+           <layout class="QVBoxLayout" name="verticalLayout_2">
+            <item>
+             <widget class="QLabel" name="label_7">
+              <property name="font">
+               <font>
+                <pointsize>12</pointsize>
+                <weight>75</weight>
+                <bold>true</bold>
+               </font>
+              </property>
+              <property name="text">
+               <string>Connections</string>
+              </property>
+             </widget>
+            </item>
+            <item>
+             <widget class="QTreeWidget" name="ResourceWidget_ConnectionResources">
+              <property name="autoScroll">
+               <bool>false</bool>
+              </property>
+              <column>
+               <property name="text">
+                <string>Name</string>
+               </property>
+              </column>
+             </widget>
+            </item>
+            <item>
+             <widget class="QLabel" name="label_4">
+              <property name="font">
+               <font>
+                <pointsize>12</pointsize>
+                <weight>75</weight>
+                <bold>true</bold>
+               </font>
+              </property>
+              <property name="text">
+               <string>Threats</string>
+              </property>
+             </widget>
+            </item>
+            <item>
+             <widget class="QTreeWidget" name="ResourceWidget_Threats">
+              <property name="autoScroll">
+               <bool>true</bool>
+              </property>
+              <column>
+               <property name="text">
+                <string>Name</string>
+               </property>
+              </column>
+             </widget>
+            </item>
+            <item>
+             <widget class="QLabel" name="label_5">
+              <property name="font">
+               <font>
+                <pointsize>12</pointsize>
+                <weight>75</weight>
+                <bold>true</bold>
+               </font>
+              </property>
+              <property name="text">
+               <string>Vulnerabilities</string>
+              </property>
+             </widget>
+            </item>
+            <item>
+             <widget class="QTreeWidget" name="ResourceWidget_Vulnerabilities">
+              <property name="autoScroll">
+               <bool>true</bool>
+              </property>
+              <column>
+               <property name="text">
+                <string>Name</string>
+               </property>
+              </column>
+             </widget>
+            </item>
+           </layout>
+          </item>
+         </layout>
+        </widget>
+        <widget class="QWidget" name="tab_IdentifiedVulnerabilities">
+         <attribute name="title">
+          <string>Identified Vulnerabilities</string>
+         </attribute>
+         <layout class="QHBoxLayout" name="horizontalLayout_3">
+          <item>
+           <widget class="QTreeWidget" name="IdentifiedVulnerabilitiesWidget">
+            <property name="autoScroll">
+             <bool>true</bool>
+            </property>
+            <attribute name="headerDefaultSectionSize">
+             <number>800</number>
+            </attribute>
+            <column>
+             <property name="text">
+              <string>Vulnerability</string>
+             </property>
+            </column>
+           </widget>
+          </item>
+          <item>
+           <layout class="QVBoxLayout" name="verticalLayout_3">
+            <item>
+             <widget class="QLabel" name="label_9">
+              <property name="font">
+               <font>
+                <pointsize>12</pointsize>
+                <weight>75</weight>
+                <bold>true</bold>
+               </font>
+              </property>
+              <property name="text">
+               <string>Details</string>
+              </property>
+             </widget>
+            </item>
+            <item>
+             <widget class="QTreeWidget" name="IdentifiedVulnerabilitiesWidget_InformationSources">
+              <property name="autoScroll">
+               <bool>true</bool>
+              </property>
+              <column>
+               <property name="text">
+                <string>Information Source</string>
+               </property>
+              </column>
+             </widget>
+            </item>
+            <item>
+             <widget class="QTreeWidget" name="IdentifiedVulnerabilitiesWidget_Resources">
+              <property name="autoScroll">
+               <bool>true</bool>
+              </property>
+              <column>
+               <property name="text">
+                <string>Resources</string>
+               </property>
+              </column>
+              <column>
+               <property name="text">
+                <string>Relevance</string>
+               </property>
+              </column>
+             </widget>
+            </item>
+           </layout>
+          </item>
+         </layout>
+        </widget>
+        <widget class="QWidget" name="tab_IdentifiedThreats">
+         <attribute name="title">
+          <string>Identified Threats</string>
+         </attribute>
+         <layout class="QHBoxLayout" name="horizontalLayout_4">
+          <item>
+           <widget class="QTreeWidget" name="IdentifiedThreatsWidget">
+            <property name="autoScroll">
+             <bool>true</bool>
+            </property>
+            <column>
+             <property name="text">
+              <string>Threat</string>
+             </property>
+            </column>
+           </widget>
+          </item>
+          <item>
+           <layout class="QVBoxLayout" name="verticalLayout_4">
+            <item>
+             <widget class="QLabel" name="label_8">
+              <property name="font">
+               <font>
+                <pointsize>12</pointsize>
+                <weight>75</weight>
+                <bold>true</bold>
+               </font>
+              </property>
+              <property name="text">
+               <string>Details</string>
+              </property>
+             </widget>
+            </item>
+            <item>
+             <widget class="QTreeWidget" name="IdentifiedThreatsWidget_InformationSources">
+              <property name="autoScroll">
+               <bool>true</bool>
+              </property>
+              <column>
+               <property name="text">
+                <string notr="true">Information Source</string>
+               </property>
+              </column>
+             </widget>
+            </item>
+            <item>
+             <widget class="QTreeWidget" name="IdentifiedThreatsWidget_ThreatSources">
+              <property name="autoScroll">
+               <bool>true</bool>
+              </property>
+              <column>
+               <property name="text">
+                <string>Threat Sources</string>
+               </property>
+              </column>
+              <column>
+               <property name="text">
+                <string>Relevance</string>
+               </property>
+              </column>
+             </widget>
+            </item>
+           </layout>
+          </item>
+         </layout>
+        </widget>
+        <widget class="QWidget" name="tab_IdentifiedRisks">
+         <attribute name="title">
+          <string>Risks</string>
+         </attribute>
+         <layout class="QHBoxLayout" name="horizontalLayout_18">
+          <item>
+           <widget class="QTreeWidget" name="IdentifiedRisksWidget">
+            <column>
+             <property name="text">
+              <string>Resource</string>
+             </property>
+            </column>
+            <column>
+             <property name="text">
+              <string>Vulnerability</string>
+             </property>
+            </column>
+            <column>
+             <property name="text">
+              <string>Threat</string>
+             </property>
+            </column>
+            <column>
+             <property name="text">
+              <string>Threat source</string>
+             </property>
+            </column>
+            <column>
+             <property name="text">
+              <string>Risk level</string>
+             </property>
+            </column>
+           </widget>
+          </item>
+         </layout>
+        </widget>
+       </widget>
+      </item>
+     </layout>
+    </item>
+   </layout>
+  </widget>
+  <widget class="QMenuBar" name="menuBar">
+   <property name="geometry">
+    <rect>
+     <x>0</x>
+     <y>0</y>
+     <width>1343</width>
+     <height>24</height>
+    </rect>
+   </property>
+   <widget class="QMenu" name="menuFile">
+    <property name="title">
+     <string>File</string>
+    </property>
+    <addaction name="menuFileNew"/>
+    <addaction name="menuFileOpen"/>
+    <addaction name="menuFileSave"/>
+    <addaction name="menuFileSaveAs"/>
+    <addaction name="separator"/>
+    <addaction name="menuFileQuit"/>
+   </widget>
+   <widget class="QMenu" name="menuCatalogs">
+    <property name="title">
+     <string>Catalogs</string>
+    </property>
+    <addaction name="menuCatalogsControls"/>
+    <addaction name="menuCatalogsThreatSources"/>
+    <addaction name="menuCatalogsVulnerabilities"/>
+    <addaction name="menuCatalogsThreats"/>
+   </widget>
+   <addaction name="menuFile"/>
+   <addaction name="menuCatalogs"/>
+  </widget>
+  <widget class="QStatusBar" name="statusBar"/>
+  <action name="actionOpen">
+   <property name="text">
+    <string>Open...</string>
+   </property>
+  </action>
+  <action name="actionSave">
+   <property name="text">
+    <string>Save</string>
+   </property>
+  </action>
+  <action name="actionSave_aS">
+   <property name="text">
+    <string>Save As...</string>
+   </property>
+  </action>
+  <action name="actionQuit">
+   <property name="text">
+    <string>Quit</string>
+   </property>
+  </action>
+  <action name="menuFileOpen">
+   <property name="text">
+    <string>Open...</string>
+   </property>
+   <property name="visible">
+    <bool>true</bool>
+   </property>
+  </action>
+  <action name="menuFileSave">
+   <property name="enabled">
+    <bool>false</bool>
+   </property>
+   <property name="text">
+    <string>Save</string>
+   </property>
+  </action>
+  <action name="menuFileSaveAs">
+   <property name="text">
+    <string>Save As...</string>
+   </property>
+  </action>
+  <action name="menuFileQuit">
+   <property name="text">
+    <string>Quit</string>
+   </property>
+   <property name="visible">
+    <bool>true</bool>
+   </property>
+  </action>
+  <action name="actionAbout">
+   <property name="text">
+    <string>About</string>
+   </property>
+  </action>
+  <action name="menuFileNew">
+   <property name="text">
+    <string>New</string>
+   </property>
+  </action>
+  <action name="actionControls">
+   <property name="text">
+    <string>Controls</string>
+   </property>
+  </action>
+  <action name="actionThreat_sources">
+   <property name="text">
+    <string>Threat sources...</string>
+   </property>
+  </action>
+  <action name="menuCatalogsControls">
+   <property name="text">
+    <string>Controls...</string>
+   </property>
+  </action>
+  <action name="menuCatalogsThreatSources">
+   <property name="text">
+    <string>Threat sources...</string>
+   </property>
+  </action>
+  <action name="menuCatalogsVulnerabilities">
+   <property name="text">
+    <string>Vulnerabilities...</string>
+   </property>
+  </action>
+  <action name="menuCatalogsThreats">
+   <property name="text">
+    <string>Threats...</string>
+   </property>
+  </action>
+ </widget>
+ <resources/>
+ <connections/>
+</ui>

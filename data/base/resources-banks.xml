@@ -1,0 +1,37 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<!--
+	This file contains resource specific for Banks in Croatia
+  -->
+
+<resources>
+
+	<resource baseid="r00000" classification="public">
+		<name lang="hr">Banka</name>
+	</resource>
+
+	<resource id="banking:r00000" classification="public">
+		<name lang="hr">Swift</name>
+	</resource>
+
+	<resource id="banking:r00001" classification="public">
+		<name lang="hr">Bloomberg</name>
+	</resource>
+
+	<resource id="banking:r00002" classification="public">
+		<name lang="hr">Reuters</name>
+	</resource>
+
+	<resource id="banking:r00003" classification="public">
+		<name lang="hr">NKS</name>
+	</resource>
+
+	<resource id="banking:r00004" classification="public">
+		<name lang="hr">FINA</name>
+	</resource>
+
+	<resource id="banking:r00005" classification="public">
+		<name lang="hr">MBU</name>
+	</resource>
+
+</resources>

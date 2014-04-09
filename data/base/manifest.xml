@@ -1,0 +1,26 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<risk_management>
+
+	<threat_sources>
+		<threat_source file="threat-sources.xml" />
+	</threat_sources>
+
+	<vulnerability_catalogs>
+		<vulnerability_catalog file="vulnerability-catalog-bits.xml" />
+		<vulnerability_catalog file="vulnerability-catalog-owasp.xml" />
+		<vulnerability_catalog file="vulnerability-catalog-organization.xml" />
+	</vulnerability_catalogs>
+
+	<threat_catalogs>
+		<threat_catalog file="threat-catalog-nist.xml" />
+	</threat_catalogs>
+
+	<resources>
+		<resource file="resources.xml" />
+	</resources>
+
+	<information_sources>
+		<information_source file="sources.xml" />
+	</information_sources>
+
+</risk_management>

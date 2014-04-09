@@ -1,0 +1,579 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<!--
+	Resources database.
+
+	The application supports resource specializtion. It is used to specialize
+	specific resource to suit better to a particular organization's needs.
+	All the risks and vulnerabilities identified for the general resource
+	are automatically valid for the specialized one, too.
+
+	To identify specialization, instead of attribute "id" use attribute
+	"baseid", and don't use "id". That attribute should point to base class.
+
+
+    Resources have some attributes that are inherent to it. Those attributes
+    are:
+
+	value	Attribute of both, denoting the value of the resource
+
+    Resources can be in different relationship to each other. Currently
+    defined relationships are the following ones:
+
+    1. A ispartof B (B iscomposedof A)
+
+        This is a physical relationship which describes that one resource (A)
+        is a part of some other resource (B). In other words, if we remove
+        resource A from B, then B isn't complete any more, or even doesn't
+        exist any more. Some examples:
+
+            (hard disk) ispartof (desktop computer)
+
+        Vulnerabilities:
+		Vulnerability of resource A is vulnerability of resource B also.
+
+        Threats:
+		Threat to resource A is threat to resource B also.
+
+		If threat is successful on A it is also successful on B.
+
+	Based on this relationship material value of resources is computed.
+	If the value of B is known, then A's value is computed by dividing
+	B's value with number of subparts, taking into account eventual ponder.
+
+	Additional information related to this form of relationship:
+
+		share	Attribute of A. Percentage A makes of B.
+
+	This is designated by having the following element within A's
+	description:
+
+		<ispartof "id_of_B" />
+
+    2. A isin B (B has A)
+
+       This is a physical relationship in which one resource (B) embodies
+       some other (A). But this other resource (A) isn't a part of the
+       resource that embodies it (B). Some examples:
+
+            (server computer) isin (data center)
+
+       Note that we can not say that:
+
+            (hard disk) isin (desktop computer)
+
+       because hard disk is an essentail part of a desktop computer and as
+       such, their relationship is more complex.
+
+        Vulnerabilities:
+		Vulnerability of A isn't vulnerability of B.
+
+        Threats:
+		Threat to A is threat to B only if it is of physical nature,
+		in that case, threat to reach A has first to pass B.
+
+		It might be said that B is control measure to protect A.
+
+    3. A communicateswith B
+
+       This signals exchange of information from resource A to resource
+       B. This is a unidirectional flow and it can be achieved using
+       different means, most likely using some form of the network, but
+       there are other possibilities like letters, USB sticks, shared
+       disk.
+
+        Vulnerabilities:
+		Vulnerability of A isn't vulnerability of B nor
+		vulnerability of B is a vulnerability of A.
+
+        Threats:
+		Threat that acts on A doesn't influence B. The same is
+		the other way around, threat on B doesn't affect A.
+
+		When threat is successful on either A or B, it now becomes
+		threat to other resource.
+
+	This is designated by having the following element within A's
+	description:
+
+		<communicateswith "id_of_B" />
+
+    4. A uses B
+
+       This means that resource A uses computing resource B. Resource A
+       is some human, while resource B is some kind of computing device.
+
+       This is designated by having the following element within A's
+       description:
+
+		<uses "id_of_B" />
+
+    4. A suppliesenergyto B (unidirectional)
+
+	Vulnerabilities:
+
+	Threats:
+
+    5. A attachedto B (bidirectional)
+
+       A is attached to B, e.g. computer is attached to a switch, or
+       switch is attached to router. This is a physical level
+       attachment that might, or might not, allow communication of
+       the two devices in normal situation, but nevertheless it 
+       doesn't mean that the attacker can not establish some kind of
+       a communication between the two. Again, as an example, computer
+       is connected to a switch and normaly switch only relays information
+       between different devices. But, it is possible for a attacker to
+       try to attack switch itself if it managed to get to a computer.
+
+        Vulnerabilities:
+
+        Threats:
+
+    6. A isinstanceof B (B istypeof A)
+
+       This represents typeing/subtyping of different resources. For
+       example, Windows 7 is instance of Windows OS, which in turn is
+       instance of OS. The opposite direction is, Windows is type of
+       operating system, while Windows 7 is type of Windows OS. Also,
+       some specific desktop computer is an instance of class of
+       desktop computers.
+
+        Vulnerabilities:
+
+        Threats:
+
+    7. A executeson B (B executes A)
+
+       This relationship is used to denote that resource A is executing
+       within or on resource B. In this case A is a software, and B is
+       some computing device. Note that computing device might be a
+       hardware, but also some virtual machine, or interpreter.
+
+       As an example, we can take operating system executing on a
+       computer, or browser executing on a computer.
+
+       To denote that A has certain capabilities/privileges on B that
+       can endager it in certain scale (privileged vs. unprivileged
+       execution) additional data should be added in form of impact
+       measure.
+
+        Vulnerabilities:
+
+        Threats:
+
+       This is designated by having the following element within A's
+       description:
+
+		<executeson "id_of_B" />
+
+       Alternatively, it is possible to define on B that A is executed
+       on it using the following element:
+
+		<executes "id_of_A" />
+
+    8. A stores B (B storedon A)
+
+	This relationship denotes that A stores/hosts B. Most likely,
+	B will be some kind of data, or applications, that is stored
+	A which can be server, workstation, CD, USB and a like.
+
+	This is designated by having the following element within A's
+	description:
+
+		<stores id="id_of_B" />
+
+	Alternatively, to designate that B is storead on A, the following
+	tag is used:
+
+		<storedon id="id_of_A" />
+
+        Vulnerabilities:
+
+        Threats:
+
+
+CONNECTED TO. This is a physical connectivity. For example, rooms are connected to each other or to hallways.
+MAINTAINS. Maintenance of buildings or computing and networking resources. This relationship assumes elevated privilege of one resource that performs maintenance on another resource that is maintained.
+USED BY. Similar to maintains relationship but without elevated privileges.
+
+    Next, we have different types of resources:
+
+    1. Material
+
+    2. Non-material
+
+       2a. Information
+
+       2b. Software
+
+       2c. Other
+
+    Resources have the following characteristics:
+
+    1. They are part of some group. Ti is a logical grouping. For example,
+       Internet Banking is a group that consists of Web server, application,
+       database, servers on which those are running.
+
+    2. Physical location, i.e. where resource is physicaly located. That is
+       some other resource, like some server (in case of applications or
+       virtual servers) or room in other cases.
+
+    3. Network location, i.e. where resource is located on a network.
+
+    Note that all are resources and their inteconnections, there are no
+    some other elements.
+
+    For consistency reasons, the connections are one way and the other way
+    is inferred from that one way connection.
+
+-->
+
+<resources>
+
+	<resource id="r00000" classification="public">
+		<name lang="hr">Tvrtka</name>
+	</resource>
+
+	<resource id="r00012" classification="public">
+		<name lang="hr">Reputacija</name>
+	</resource>
+
+	<!-- ===================================================================
+
+	Informacijska imovina tvrtke
+
+	==================================================================== -->
+
+	<resource id="r00011" classification="public">
+		<name lang="hr">Informacijska imovina</name>
+		<ispartof resourceid="r00000" share_type="percent" share="10" />
+	</resource>
+
+	<resource id="r00100" classification="public">
+		<name lang="hr">Tajne informacije i podaci tvrtke</name>
+		<ispartof resourceid="r00011" share_type="percent" share="50" />
+	</resource>
+
+	<resource id="r00103" classification="public">
+		<name lang="hr">Javne informacije i podaci tvrtke</name>
+		<ispartof resourceid="r00011" share_type="percent" share="1" />
+	</resource>
+
+	<!-- ===================================================================
+
+	Procesi unutar tvrtke
+
+	==================================================================== -->
+
+	<resource id="r00104" classification="public">
+		<name lang="hr">Procesi</name>
+		<ispartof resourceid="r00000" share="1" />
+	</resource>
+
+	<resource id="r00174" classification="public">
+		<name lang="hr">Izrada pričuvne kopije</name>
+		<ispartof resourceid="r00104" share="1" />
+	</resource>
+
+	<resource id="r00175" classification="public">
+		<name lang="hr">Upravljanje rizicima</name>
+		<ispartof resourceid="r00104" share="1" />
+	</resource>
+
+	<resource id="r00176" classification="public">
+		<name lang="hr">Klasifikacija informacija</name>
+		<ispartof resourceid="r00104" share="1" />
+	</resource>
+
+	<resource id="r00177" classification="public">
+		<name lang="hr">Upravljanje sistemskim i operativnih zapisima</name>
+		<ispartof resourceid="r00104" share="1" />
+	</resource>
+
+	<resource id="r00178" classification="public">
+		<name lang="hr">Upravljanje pravima pristupa</name>
+		<ispartof resourceid="r00104" share="1" />
+	</resource>
+
+	<resource id="r00179" classification="public">
+		<name lang="hr">Planiranje oporavka</name>
+		<ispartof resourceid="r00104" share="1" />
+	</resource>
+
+	<!-- Upravljanje incidentima - uloge i resursi -->
+	<resource id="r00173" classification="public">
+		<name lang="hr">Upravljanje incidentima</name>
+		<ispartof resourceid="r00104" share="1" />
+	</resource>
+
+	<!-- ===================================================================
+
+	Fizicka imovina
+
+	==================================================================== -->
+
+	<resource id="r00105" classification="public">
+		<name lang="hr">Sistemska sala</name>
+		<ispartof resourceid="r00000" />
+	</resource>
+
+	<resource id="r00107" classification="public">
+		<name lang="hr">Pričuvna lokacija</name>
+		<ispartof resourceid="r00000" />
+	</resource>
+
+	<!-- ===================================================================
+
+	Informacijski sustav tvrtke
+
+	==================================================================== -->
+
+	<resource id="r00013" classification="public">
+		<name lang="hr">Informacijski sustav tvrtke</name>
+		<ispartof resourceid="r00000" />
+	</resource>
+
+	<resource id="r00111" classification="classified">
+		<name lang="hr">Telefonski podsustav</name>
+		<ispartof resourceid="r00013" />
+	</resource>
+
+	<resource id="r00166" classification="public">
+		<name lang="hr">Poslužitelji</name>
+		<ispartof resourceid="r00013" />
+	</resource>
+
+	<resource id="r00106" classification="public">
+		<name lang="hr">Radne stanice</name>
+		<ispartof resourceid="r00013" />
+	</resource>
+
+	<resource id="r00112" classification="classified">
+		<name lang="hr">Prijenosna računala</name>
+		<ispartof resourceid="r00106" />
+	</resource>
+
+	<resource id="r00114" classification="classified">
+		<name lang="hr">Stolna računala</name>
+		<ispartof resourceid="r00106" />
+	</resource>
+
+	<resource id="r00116" classification="classified">
+		<name lang="hr">Pametni telefoni i tableti</name>
+		<ispartof resourceid="r00013" />
+	</resource>
+
+	<resource id="r00123" classification="classified">
+		<name lang="hr">Sustav za pohranjivanje sistemskih i operativnih zapisa</name>
+		<ispartof resourceid="r00013" />
+	</resource>
+
+	<resource id="r00162" classification="public">
+		<name lang="hr">Bankomat</name>
+		<ispartof resourceid="r00013" />
+	</resource>
+
+	<resource id="r00125" classification="classified">
+		<name lang="hr">Internet bankarstvo</name>
+		<ispartof resourceid="r00013" />
+	</resource>
+
+	<resource id="r00127" classification="classified">
+		<name lang="hr">Sustav za pričuvnu pohranu</name>
+		<ispartof resourceid="r00013" />
+	</resource>
+
+	<resource id="r00132" classification="classified">
+		<name lang="hr">Sustav elektroničke pošte</name>
+		<isin resourceid="r00105" />
+		<ispartof resourceid="r00013" />
+	</resource>
+
+	<resource id="r00143" classification="public">
+		<name lang="hr">Pisači</name>
+		<ispartof resourceid="r00013" />
+	</resource>
+
+	<resource id="r00144" classification="public">
+		<name lang="hr">Adobe Reader</name>
+		<executeson resourceid="r00106" />
+		<ispartof resourceid="r00106" />
+	</resource>
+
+	<resource id="r00145" classification="public">
+		<name lang="hr">Adobe Flash</name>
+		<executeson resourceid="r00106" />
+		<ispartof resourceid="r00106" />
+	</resource>
+
+	<resource id="r00149" classification="public">
+		<name lang="hr">Operacijski sustavi</name>
+		<executeson resourceid="r00106" />
+		<executeson resourceid="r00166" />
+		<ispartof resourceid="r00013" />
+	</resource>
+
+	<resource id="r00151" classification="public">
+		<name lang="hr">Linux</name>
+		<executeson resourceid="r00166" />
+		<ispartof resourceid="r00013" />
+	</resource>
+
+	<resource id="r00152" classification="public">
+		<name lang="hr">Adobe Software</name>
+		<ispartof resourceid="r00013" />
+		<!--
+		     Confidentiality isn't at all important, everyone knows we have Adobe. 
+		     Integrity is very important since attacks that use malformed PDF documents count on 
+		     Availability of the application is very important as business processes depend on it.
+		 -->
+		<executeson resourceid="r00106" />
+	</resource>
+
+	<resource id="r00147" classification="public">
+		<name lang="hr">Internet explorer</name>
+		<executeson resourceid="r00106" />
+		<ispartof resourceid="r00148" />
+	</resource>
+
+	<resource id="r00148" classification="public">
+		<name lang="hr">Windows OS</name>
+		<executeson resourceid="r00106" />
+		<ispartof resourceid="r00013" />
+	</resource>
+
+	<resource id="r00163" classification="public">
+		<name lang="hr">Windows XP</name>
+		<executeson resourceid="r00106" />
+		<ispartof resourceid="r00148" />
+	</resource>
+
+	<resource id="r00169" classification="public">
+		<name lang="hr">Windows 7</name>
+		<executeson resourceid="r00106" />
+		<ispartof resourceid="r00148" />
+	</resource>
+
+	<resource id="r00170" classification="public">
+		<name lang="hr">Windows 8</name>
+		<executeson resourceid="r00106" />
+		<ispartof resourceid="r00148" />
+	</resource>
+
+	<resource id="r00171" classification="public">
+		<name lang="hr">Windows 8.1</name>
+		<executeson resourceid="r00106" />
+		<ispartof resourceid="r00148" />
+	</resource>
+
+	<resource id="r00164" classification="public">
+		<name lang="hr">Android</name>
+		<ispartof resourceid="r00013" />
+	</resource>
+
+	<resource id="r00165" classification="public">
+		<name lang="hr">iOS</name>
+		<ispartof resourceid="r00013" />
+	</resource>
+
+	<!--
+
+	HUMAN RESOURCES
+
+	-->
+
+	<resource id="r00172" classification="public">
+		<name lang="hr">Radnici</name>
+		<name lang="en">Human resources</name>
+		<ispartof resourceid="r00000" />
+	</resource>
+
+	<!--
+
+	Resources that are source of threats
+
+	-->
+
+	<resource id="r30000" classification="public">
+		<name lang="hr">Adversarial</name>
+	</resource>
+
+	<resource id="r30001" classification="public">
+		<name lang="hr">Pojedinac</name>
+		<ispartof resourceid="r30000" />
+	</resource>
+
+	<resource id="r30002" classification="public">
+		<name lang="en">Outsider</name>
+		<ispartof resourceid="r30001" />
+	</resource>
+
+	<resource id="r30003" classification="public">
+		<name lang="en">Insider</name>
+		<ispartof resourceid="r30001" />
+	</resource>
+
+	<resource id="r30004" classification="public">
+		<name lang="en">Trusted insider</name>
+		<ispartof resourceid="r30001" />
+	</resource>
+
+	<resource id="r30005" classification="public">
+		<name lang="en">Privileged insider</name>
+		<ispartof resourceid="r30001" />
+	</resource>
+
+	<resource id="r30006" classification="public">
+		<name lang="en">Klijent</name>
+		<ispartof resourceid="r30001" />
+	</resource>
+
+	<resource id="r30007" classification="public">
+		<name lang="hr">Grupa</name>
+		<ispartof resourceid="r30000" />
+	</resource>
+
+	<resource id="r30008" classification="public">
+		<name lang="hr">Ad hoc grupa</name>
+		<ispartof resourceid="r30007" />
+	</resource>
+
+	<resource id="r30009" classification="public">
+		<name lang="en">Established Group</name>
+		<name lang="hr">Organizirana grupa</name>
+		<ispartof resourceid="r30007" />
+	</resource>
+
+	<resource id="r30010" classification="public">
+		<name lang="hr">Organizacija</name>
+		<ispartof resourceid="r30000" />
+	</resource>
+
+	<resource id="r30011" classification="public">
+		<name lang="en">Competitor</name>
+		<ispartof resourceid="r30010" />
+	</resource>
+
+	<resource id="r30012" classification="public">
+		<name lang="en">Suplier</name>
+		<ispartof resourceid="r30010" />
+	</resource>
+
+	<resource id="r30013" classification="public">
+		<name lang="en">Partner</name>
+		<ispartof resourceid="r30010" />
+	</resource>
+
+	<resource id="r30014" classification="public">
+		<name lang="en">Consumer</name>
+		<ispartof resourceid="r30010" />
+	</resource>
+
+	<resource id="r30015" classification="public">
+		<name lang="hr">Država</name>
+		<name lang="en">Nation-state</name>
+		<ispartof resourceid="r30000" />
+	</resource>
+
+</resources>

@@ -1,0 +1,599 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<!--
+     This file/database contains general information about threat, i.e.
+     threat source, threats and scales for measuring threats. It doesn't
+     contain any specific threats from real life.
+
+     This is publicly available information taken from NIST 800-30r1.
+
+     Information for each threat:
+
+	@id		Identifier, for the reference purposes
+			(TODO: consider use of XPath/XLink)
+	@source		From where the particular threat was taken.
+	@severity	How dangerous is the threat occurs. Relative
+			measure from 1 (the least dangerous) to N
+			(the most dangerous).
+
+			The idea is that sniffing, for example, while dangerous
+			isn't dangerous as having a attacker doing something
+			within the network!
+
+	@expectancy	How likely is that this threat will occur. For example,
+			scanning of external IP address is very likely to occur,
+			but scanning internal networks isn't so likely and is a
+			sign of a big problem!
+-->
+
+<threat-catalog source="NIST800-31r1">
+
+	<threat-group id="nist800-31r1:tg001" adversary="y">
+
+		<name lang="en">Perform reconnaissance and gather information.</name>
+
+		<threat id="nist800-31r1:t0001">
+			<name lang="en">Perform perimeter network reconnaissance/scanning.</name>
+
+			<description lang="en">Adversary uses commercial or free software to scan organizational perimeters to obtain a better understanding of the information technology infrastructure and improve the ability to launch successful attacks.</description>
+		</threat>
+
+		<threat id="nist800-31r1:t0002">
+			<name lang="en">Perform network sniffing of exposed networks.</name>
+
+			<description lang="en">Adversary with access to exposed wired or wireless data channels used to transmit information, uses network sniffing to identify components, resources, and protections.</description>
+		</threat>
+
+		<threat id="nist800-31r1:t0003">
+			<name lang="en">Gather information using open source discovery of organizational information.</name>
+
+			<description lang="en">Adversary mines publically accessible information to gather information about organizational information systems, business processes, users or personnel, or external relationships that the adversary can subsequently employ in support of an attack.</description>
+		</threat>
+
+		<threat id="nist800-31r1:t0004">
+			<name lang="en">Perform reconnaissance and surveillance of targeted organizations.</name>
+
+			<description lang="en"> Adversary uses various means (e.g., scanning, physical observation) over time to examine and assess organizations and ascertain points of vulnerability.</description>
+		</threat>
+
+		<threat id="nist800-31r1:t0005">
+			<name lang="en">Perform malware-directed internal reconnaissance.</name>
+
+			<description lang="en">Adversary uses malware installed inside the organizational perimeter to identify targets of opportunity. Because the scanning, probing, or observation does not cross the perimeter, it is not detected by externally placed intrusion detection systems.</description>
+		</threat>
+
+	</threat-group>
+
+	<threat-group id="nist800-31r1:tg002" adversary="y">
+		<name lang="en">Craft or create attack tools.</name>
+
+		<threat id="nist800-31r1:t0006">
+			<name lang="en">Craft phishing attacks.</name>
+
+			<description lang="en">Adversary counterfeits communications from a legitimate/trustworthy source to acquire sensitive information such as usernames, passwords, or SSNs. Typical attacks occur via email, instant messaging, or comparable means; commonly directing users to websites that appear to be legitimate sites, while actually stealing the entered information.</description>
+		</threat>
+
+		<threat id="nist800-31r1:t0007">
+			<name lang="en">Craft spear phishing attacks.</name>
+			<description lang="en">Adversary employs phishing attacks targeted at high value targets (e.g., senior leaders/executives).</description>
+		</threat>
+
+		<threat id="nist800-31r1:t0008">
+			<name lang="en">Craft attacks specifically based on deployed information technology environment.</name>
+			<description lang="en">Adversary develops attacks (e.g., crafts targeted malware) that take advantage of adversary knowledge of the organizational information technology environment.</description>
+		</threat>
+
+		<threat id="nist800-31r1:t0009">
+			<name lang="en">Create counterfeit/spoof website.</name>
+			<description lang="en">Adversary creates duplicates of legitimate websites; when users visit a counterfeit site, the site can gather information or download malware.</description>
+		</threat>
+
+		<threat id="nist800-31r1:t0010">
+			<name lang="en">Craft counterfeit certificates.</name>
+			<description lang="en">Adversary counterfeits or compromises a certificate authority, so that malware or connections will appear legitimate.</description>
+		</threat>
+
+		<threat id="nist800-31r1:t0011">
+			<name lang="en">Create and operate false front organizations to inject malicious components into the supply chain.</name>
+			<description lang="en">Adversary creates false front organizations with the appearance of legitimate suppliers in the critical life-cycle path that then inject corrupted/malicious information system components into the organizational supply chain.</description>
+		</threat>
+
+	</threat-group>
+
+	<threat-group id="nist800-31r1:tg003" adversary="y">
+		<name lang="en">Deliver/insert/install malicious capabilities.</name>
+
+		<threat id="nist800-31r1:t0013">
+			<name lang="en">Deliver known malware to internal organizational information systems (e.g., virus via email).</name>
+			<description lang="en">Adversary uses common delivery mechanisms (e.g., email) to install/insert known malware (e. g., malware whose existence is known) into organizational information systems.</description>
+		</threat>
+
+		<threat id="nist800-31r1:t0014">
+			<name lang="en">Deliver modified malware to internal organizational information systems.</name>
+			<description lang="en">Adversary uses more sophisticated delivery mechanisms than email (e.g., web traffic, instant messaging, FTP) to deliver malware and possibly modifications of known malware to gain access to internal organizational information systems.</description>
+		</threat>
+
+		<threat id="nist800-31r1:t0015">
+			<name lang="en">Deliver targeted malware for control of internal systems and exfiltration of data.</name>
+			<description lang="en">Adversary installs malware that is specifically designed to take control of internal organizational information systems, identify sensitive information, exfiltrate the information back to adversary, and conceal these actions.</description>
+		</threat>
+
+		<threat id="nist800-31r1:t0016">
+			<name lang="en">Deliver malware by providing removable media.</name>
+			<description lang="en">Adversary places removable media (e.g., flash drives) containing malware in locations external to organizational physical perimeters but where employees are likely to find the media (e.g., facilities parking lots, exhibits at conferences attended by employees) and use it on organizational information systems.</description>
+		</threat>
+
+		<threat id="nist800-31r1:t0017">
+			<name lang="en">Insert untargeted malware into downloadable software and/or into commercial information technology products.</name>
+			<description lang="en">Adversary corrupts or inserts malware into common freeware, shareware or commercial information technology products. Adversary is not targeting specific organizations, simply looking for entry points into internal organizational information systems. Note that this is particularly a concern for mobile applications.</description>
+		</threat>
+
+		<threat id="nist800-31r1:t0018">
+			<name lang="en">Insert targeted malware into organizational information systems and information system components.</name>
+			<description lang="en">Adversary inserts malware into organizational information systems and information system components (e.g., commercial information technology products), specifically targeted to the hardware, software, and firmware used by organizations (based on knowledge gained via reconnaissance).</description>
+		</threat>
+
+		<threat id="nist800-31r1:t0019">
+			<name lang="en">Insert specialized malware into organizational information systems based on system configurations.</name>
+			<description lang="en">Adversary inserts specialized, non-detectable, malware into organizational information systems based on system configurations, specifically targeting critical information system components based on reconnaissance and placement within organizational information systems.</description>
+		</threat>
+
+		<threat id="nist800-31r1:t0020">
+			<name lang="en">Insert counterfeit or tampered hardware into the supply chain.</name>
+			<description lang="en">Adversary intercepts hardware from legitimate suppliers. Adversary modifies the hardware or replaces it with faulty or otherwise modified hardware.</description>
+		</threat>
+
+		<threat id="nist800-31r1:t0021">
+			<name lang="en">Insert tampered critical components into organizational systems.</name>
+			<description lang="en">Adversary replaces, though supply chain, subverted insider, or some combination thereof, critical information system components with modified or corrupted components.</description>
+		</threat>
+
+		<threat id="nist800-31r1:t0022">
+			<name lang="en">Install general-purpose sniffers on organization-controlled information systems or networks.</name>
+			<description lang="en">Adversary installs sniffing software onto internal organizational information systems or networks.</description>
+		</threat>
+
+		<threat id="nist800-31r1:t0023">
+			<name lang="en">Install persistent and targeted sniffers on organizational information systems and networks.</name>
+			<description lang="en">Adversary places within internal organizational information systems or networks software designed to (over a continuous period of time) collect (sniff) network traffic.</description>
+		</threat>
+
+		<threat id="nist800-31r1:t0024">
+			<name lang="en">Insert malicious scanning devices (e.g., wireless sniffers) inside facilities.</name>
+			<description lang="en">Adversary uses postal service or other commercial delivery services to deliver to organizational mailrooms a device that is able to scan wireless communications accessible from within the mailrooms and then wirelessly transmit information back to adversary.</description>
+		</threat>
+
+		<threat id="nist800-31r1:t0025">
+			<name lang="en">Insert subverted individuals into organizations.</name>
+			<description lang="en">Adversary places individuals within organizations who are willing and able to carry out actions to cause harm to organizational missions/business functions.</description>
+		</threat>
+
+		<threat id="nist800-31r1:t0026">
+			<name lang="en">Insert subverted individuals into privileged positions in organizations.</name>
+			<description lang="en">Adversary places individuals in privileged positions within organizations who are willing and able to carry out actions to cause harm to organizational missions/business functions. Adversary may target privileged functions to gain access to sensitive information (e.g., user accounts, system files, etc.) and may leverage access to one privileged capability to get to another capability.</description>
+		</threat>
+
+	</threat-group>
+
+	<threat-group id="nist800-31r1:tg004" adversary="y">
+		<name lang="en">Exploit and compromise.</name>
+
+		<threat id="nist800-31r1:t0027">
+			<name lang="en">Exploit physical access of authorized staff to gain access to organizational facilities.</name>
+			<description lang="en">Adversary follows (“tailgates”) authorized individuals into secure/controlled locations with the goal of gaining access to facilities, circumventing physical security checks.</description>
+		</threat>
+
+		<threat id="nist800-31r1:t0028">
+			<name lang="en">Exploit poorly configured or unauthorized information systems exposed to the Internet.</name>
+			<description lang="en">Adversary gains access through the Internet to information systems that are not authorized for Internet connectivity or that do not meet organizational configuration requirements.</description>
+		</threat>
+
+		<threat id="nist800-31r1:t0028-1">
+			<name lang="en">Exploit poorly configured or unauthorized information systems.</name>
+			<description lang="en">Adversary gains access to information systems that are not authorized for Internet connectivity or that do not meet organizational configuration requirements.</description>
+		</threat>
+
+		<threat id="nist800-31r1:t0029">
+			<name lang="en">Exploit split tunneling.</name>
+			<description lang="en">Adversary takes advantage of external organizational or personal information systems (e.g., laptop computers at remote locations) that are simultaneously connected securely to organizational information systems or networks and to nonsecure remote connections.</description>
+		</threat>
+
+		<threat id="nist800-31r1:t0030">
+			<name lang="en">Exploit multi-tenancy in a cloud environment.</name>
+			<description lang="en">Adversary, with processes running in an organizationally-used cloud environment, takes advantage of multi-tenancy to observe behavior of organizational processes, acquire organizational information, or interfere with the timely or correct functioning of organizational processes.</description>
+		</threat>
+
+		<threat id="nist800-31r1:t0031">
+			<name lang="en">Exploit known vulnerabilities in mobile systems (e.g., laptops, PDAs, smart phones).</name>
+			<description lang="en">Adversary takes advantage of fact that transportable information systems are outside physical protection of organizations and logical protection of corporate firewalls, and compromises the systems based on known vulnerabilities to gather information from those systems.</description>
+		</threat>
+
+		<threat id="nist800-31r1:t0032">
+			<name lang="en">Exploit recently discovered vulnerabilities.</name>
+			<description lang="en">Adversary exploits recently discovered vulnerabilities in organizational information systems in an attempt to compromise the systems before mitigation measures are available or in place.</description>
+		</threat>
+
+		<threat id="nist800-31r1:t0033">
+			<name lang="en">Exploit vulnerabilities on internal organizational information systems.</name>
+			<description lang="en">Adversary searches for known vulnerabilities in organizational internal information systems and exploits those vulnerabilities.</description>
+		</threat>
+
+		<threat id="nist800-31r1:t0034">
+			<name lang="en">Exploit vulnerabilities using zero-day attacks.</name>
+			<description lang="en">Adversary employs attacks that exploit as yet unpublicized vulnerabilities. Zero-day attacks are based on adversary insight into the information systems and applications used by organizations as well as adversary reconnaissance of organizations.</description>
+		</threat>
+
+		<threat id="nist800-31r1:t0035">
+			<name lang="en">Exploit vulnerabilities in information systems timed with organizational mission/business operations tempo.</name>
+			<description lang="en">Adversary launches attacks on organizations in a time and manner consistent with organizational needs to conduct mission/business operations.</description>
+		</threat>
+
+		<threat id="nist800-31r1:t0036">
+			<name lang="en">Exploit insecure or incomplete data deletion in multi-tenant environment.</name>
+			<description lang="en">Adversary obtains unauthorized information due to insecure or incomplete data deletion in a multi-tenant environment (e.g., in a cloud computing environment).</description>
+		</threat>
+
+		<threat id="nist800-31r1:t0037">
+			<name lang="en">Violate isolation in multi-tenant environment.</name>
+			<description lang="en">Adversary circumvents or defeats isolation mechanisms in a multi-tenant environment (e.g., in a cloud computing environment) to observe, corrupt, or deny service to hosted services and information/data.</description>
+		</threat>
+
+		<threat id="nist800-31r1:t0038">
+			<name lang="en">Compromise critical information systems via physical access.</name>
+			<description lang="en">Adversary obtains physical access to organizational information systems and makes modifications.</description>
+		</threat>
+
+		<threat id="nist800-31r1:t0039">
+			<name lang="en">Compromise information systems or devices used externally and reintroduced into the enterprise.</name>
+			<description lang="en">Adversary installs malware on information systems or devices while the systems/devices are external to organizations for purposes of subsequently infecting organizations when reconnected.</description>
+		</threat>
+
+		<threat id="nist800-31r1:t0040">
+			<name lang="en">Compromise software of organizational critical information systems.</name>
+			<description lang="en">Adversary inserts malware or otherwise corrupts critical internal organizational information systems.</description>
+		</threat>
+
+		<threat id="nist800-31r1:t0041">
+			<name lang="en">Compromise organizational information systems to facilitate exfiltration of data/information.</name>
+			<description lang="en">Adversary implants malware into internal organizational information systems, where the malware over time can identify and then exfiltrate valuable information.</description>
+		</threat>
+
+		<threat id="nist800-31r1:t0042">
+			<name lang="en">Compromise mission-critical information.</name>
+			<description lang="en">Adversary compromises the integrity of mission-critical information, thus preventing or impeding ability of organizations to which information is supplied, from carrying out operations.</description>
+		</threat>
+
+		<threat id="nist800-31r1:t0043">
+			<name lang="en">Compromise design, manufacture, and/or distribution of information system components (including hardware, software, and firmware). </name>
+			<description lang="en">Adversary compromises the design, manufacture, and/or distribution of critical information system components at selected suppliers.</description>
+		</threat>
+
+
+	</threat-group>
+
+	<threat-group id="nist800-31r1:tg005" adversary="y">
+		<name lang="en">Conduct an attack (i.e., direct/coordinate attack tools or activities).</name>
+
+		<threat id="nist800-31r1:t0044">
+			<name lang="en">Conduct communications interception attacks.</name>
+			<description lang="en">Adversary takes advantage of communications that are either unencrypted or use weak encryption (e.g., encryption containing publically known flaws), targets those communications, and gains access to transmitted information and channels.</description>
+		</threat>
+
+		<threat id="nist800-31r1:t0045">
+			<name lang="en">Conduct wireless jamming attacks.</name>
+			<description lang="en">Adversary takes measures to interfere with wireless communications so as to impede or prevent communications from reaching intended recipients.</description>
+		</threat>
+
+		<threat id="nist800-31r1:t0046">
+			<name lang="en">Conduct attacks using unauthorized ports, protocols and services.</name>
+			<description lang="en">Adversary conducts attacks using ports, protocols, and services for ingress and egress that are not authorized for use by organizations.</description>
+		</threat>
+
+		<threat id="nist800-31r1:t0047">
+			<name lang="en">Conduct attacks leveraging traffic/data movement allowed across perimeter.</name>
+			<description lang="en">Adversary makes use of permitted information flows (e.g., email communication, removable storage) to compromise internal information systems, which allows adversary to obtain and exfiltrate sensitive information through perimeters.</description>
+		</threat>
+
+		<threat id="nist800-31r1:t0048">
+			<name lang="en">Conduct simple Denial of Service (DoS) attack.</name>
+			<description lang="en">Adversary attempts to make an Internet-accessible resource unavailable to intended users, or prevent the resource from functioning efficiently or at all, temporarily or indefinitely.</description>
+		</threat>
+
+		<threat id="nist800-31r1:t0049">
+			<name lang="en">Conduct Distributed Denial of Service (DDoS) attacks.</name>
+			<description lang="en">Adversary uses multiple compromised information systems to attack a single target, thereby causing denial of service for users of the targeted information systems.</description>
+		</threat>
+
+		<threat id="nist800-31r1:t0050">
+			<name lang="en">Conduct targeted Denial of Service (DoS) attacks.</name>
+			<description lang="en">Adversary targets DoS attacks to critical information systems, components, or supporting infrastructures, based on adversary knowledge of dependencies.</description>
+		</threat>
+
+		<threat id="nist800-31r1:t0050">
+			<name lang="en">Conduct physical attacks on organizational facilities.</name>
+			<description lang="en">Adversary conducts a physical attack on organizational facilities (e.g., sets a fire).</description>
+		</threat>
+
+		<threat id="nist800-31r1:t0051">
+			<name lang="en">Conduct physical attacks on infrastructures supporting organizational facilities.</name>
+			<description lang="en">Adversary conducts a physical attack on one or more infrastructures supporting organizational facilities (e.g., breaks a water main, cuts a power line).</description>
+		</threat>
+
+		<threat id="nist800-31r1:t0052">
+			<name lang="en">Conduct cyber-physical attacks on organizational facilities.</name>
+			<description lang="en">Adversary conducts a cyber-physical attack on organizational facilities (e.g., remotely changes HVAC settings).</description>
+		</threat>
+
+		<threat id="nist800-31r1:t0053">
+			<name lang="en">Conduct data scavenging attacks in a cloud environment.</name>
+			<description lang="en">Adversary obtains data used and then deleted by organizational processes running in a cloud environment.</description>
+		</threat>
+
+		<threat id="nist800-31r1:t0054">
+			<name lang="en">Conduct brute force login attempts/password guessing attacks.</name>
+			<description lang="en">Adversary attempts to gain access to organizational information systems by random or systematic guessing of passwords, possibly supported by password cracking utilities.</description>
+		</threat>
+
+		<threat id="nist800-31r1:t0055">
+			<name lang="en">Conduct nontargeted zero-day attacks.</name>
+			<description lang="en">Adversary employs attacks that exploit as yet unpublicized vulnerabilities. Attacks are not based on any adversary insights into specific vulnerabilities of organizations.</description>
+		</threat>
+
+		<threat id="nist800-31r1:t0056">
+			<name lang="en">Conduct externally-based session hijacking.</name>
+			<description lang="en">Adversary takes control of (hijacks) already established, legitimate information system sessions between organizations and external entities (e.g., users connecting from off-site locations).</description>
+		</threat>
+
+		<threat id="nist800-31r1:t0057">
+			<name lang="en">Conduct internally-based session hijacking.</name>
+			<description lang="en">Adversary places an entity within organizations in order to gain access to organizational information systems or networks for the express purpose of taking control (hijacking) an already established, legitimate session either between organizations and external entities (e.g., users connecting from remote locations) or between two locations within internal networks.</description>
+		</threat>
+
+		<threat id="nist800-31r1:t0058">
+			<name lang="en">Conduct externally-based network traffic modification (man in the middle) attacks.</name>
+			<description lang="en">Adversary, operating outside organizational systems, intercepts/eavesdrops on sessions between organizational and external systems. Adversary then relays messages between organizational and external systems, making them believe that they are talking directly to each other over a private connection, when in fact the entire communication is controlled by the adversary. Such attacks are of particular concern for organizational use of community, hybrid, and public clouds.</description>
+		</threat>
+
+		<threat id="nist800-31r1:t0059">
+			<name lang="en">Conduct internally-based network traffic modification (man in the middle) attacks.</name>
+			<description lang="en">Adversary operating within the organizational infrastructure intercepts and corrupts data sessions.</description>
+		</threat>
+
+		<threat id="nist800-31r1:t0060">
+			<name lang="en">Conduct outsider-based social engineering to obtain information.</name>
+			<description lang="en">Externally placed adversary takes actions (e.g., using email, phone) with the intent of persuading or otherwise tricking individuals within organizations into revealing critical/sensitive information (e.g., personally identifiable information).</description>
+		</threat>
+
+		<threat id="nist800-31r1:t0061">
+			<name lang="en">Conduct insider-based social engineering to obtain information.</name>
+			<description lang="en">Internally placed adversary takes actions (e.g., using email, phone) so that individuals within organizations reveal critical/sensitive information (e.g., mission information).</description>
+		</threat>
+
+		<threat id="nist800-31r1:t0062">
+			<name lang="en">Conduct attacks targeting and compromising personal devices of critical employees.</name>
+			<description lang="en">Adversary targets key organizational employees by placing malware on their personally owned information systems and devices (e.g., laptop/notebook computers, personal digital assistants, smart phones). The intent is to take advantage of any instances where employees use personal information systems or devices to handle critical/sensitive information.</description>
+		</threat>
+
+		<threat id="nist800-31r1:t0063">
+			<name lang="en">Conduct supply chain attacks targeting and exploiting critical hardware, software, or firmware.</name>
+			<description lang="en">Adversary targets and compromises the operation of software (e.g., through malware injections), firmware, and hardware that performs critical functions for organizations. This is largely accomplished as supply chain attacks on both commercial off-the-shelf and custom information systems and components.</description>
+		</threat>
+
+	</threat-group>
+
+	<threat-group id="nist800-31r1:tg006" adversary="y">
+		<name lang="en">Achieve results (i.e., cause adverse impacts, obtain information)</name>
+
+		<threat id="nist800-31r1:t0064">
+			<name lang="en">Obtain sensitive information through network sniffing of external networks.</name>
+			<description lang="en">Adversary with access to exposed wired or wireless data channels that organizations (or organizational personnel) use to transmit information (e.g., kiosks, public wireless networks) intercepts communications.</description>
+		</threat>
+
+		<threat id="nist800-31r1:t0065">
+			<name lang="en">Obtain sensitive information via exfiltration.</name>
+			<description lang="en">Adversary directs malware on organizational systems to locate and surreptitiously transmit sensitive information.</description>
+		</threat>
+
+		<threat id="nist800-31r1:t0066">
+			<name lang="en">Cause degradation or denial of attacker-selected services or capabilities.</name>
+			<description lang="en">Adversary directs malware on organizational systems to impair the correct and timely support of organizational mission/business functions.</description>
+		</threat>
+
+		<threat id="nist800-31r1:t0067">
+			<name lang="en">Cause deterioration/destruction of critical information system components and functions.</name>
+			<description lang="en">Adversary destroys or causes deterioration of critical information system components to impede or eliminate organizational ability to carry out missions or business functions. Detection of this action is not a concern.</description>
+		</threat>
+
+		<threat id="nist800-31r1:t0068">
+			<name lang="en">Cause integrity loss by creating, deleting, and/or modifying data on publicly accessible information systems (e.g., web defacement). </name>
+			<description lang="en">Adversary vandalizes, or otherwise makes unauthorized changes to, organizational websites or data on websites.</description>
+		</threat>
+
+		<threat id="nist800-31r1:t0069">
+			<name lang="en">Cause integrity loss by polluting or corrupting critical data.</name>
+			<description lang="en">Adversary implants corrupted and incorrect data in critical data, resulting in suboptimal actions or loss of confidence in organizational data/services.</description>
+		</threat>
+
+		<threat id="nist800-31r1:t0070">
+			<name lang="en">Cause integrity loss by injecting false but believable data into organizational information systems.</name>
+			<description lang="en">Adversary injects false but believable data into organizational information systems, resulting in suboptimal actions or loss of confidence in organizational data/services.</description>
+		</threat>
+
+		<threat id="nist800-31r1:t0071">
+			<name lang="en">Cause disclosure of critical and/or sensitive information by authorized users.</name>
+			<description lang="en">Adversary induces (e.g., via social engineering) authorized users to inadvertently expose, disclose, or mishandle critical/sensitive information.</description>
+		</threat>
+
+		<threat id="nist800-31r1:t0072">
+			<name lang="en">Cause unauthorized disclosure and/or unavailability by spilling sensitive information.</name>
+			<description lang="en">Adversary contaminates organizational information systems (including devices and networks) by causing them to handle information of a classification/sensitivity for which they have not been authorized. The information is exposed to individuals who are not authorized access to such information, and the information system, device, or network is unavailable while the spill is investigated and mitigated.</description>
+		</threat>
+
+		<threat id="nist800-31r1:t0073">
+			<name lang="en">Obtain information by externally located interception of wireless network traffic.</name>
+			<description lang="en">Adversary intercepts organizational communications over wireless networks. Examples include targeting public wireless access or hotel networking connections, and drive-by subversion of home or organizational wireless routers.</description>
+		</threat>
+
+		<threat id="nist800-31r1:t0074">
+			<name lang="en">Obtain unauthorized access.</name>
+			<description lang="en">Adversary with authorized access to organizational information systems, gains access to resources that exceeds authorization.</description>
+		</threat>
+
+		<threat id="nist800-31r1:t0075">
+			<name lang="en">Obtain sensitive data/information from publicly accessible information systems.</name>
+			<description lang="en">Adversary scans or mines information on publically accessible servers and web pages of organizations with the intent of finding sensitive information.</description>
+		</threat>
+
+		<threat id="nist800-31r1:t0076">
+			<name lang="en">Obtain information by opportunistically stealing or scavenging information systems/components.</name>
+			<description lang="en">Adversary steals information systems or components (e. g., laptop computers or data storage media) that are left unattended outside of the physical perimeters of organizations, or scavenges discarded components.</description>
+		</threat>
+
+	</threat-group>
+
+	<threat-group id="nist800-31r1:tg007" adversary="y">
+		<name lang="en">Maintain a presence or set of capabilities.</name>
+
+		<threat id="nist800-31r1:t0077">
+			<name lang="en">Obfuscate adversary actions.</name>
+			<description lang="en">Adversary takes actions to inhibit the effectiveness of the intrusion detection systems or auditing capabilities within organizations.</description>
+		</threat>
+
+		<threat id="nist800-31r1:t0078">
+			<name lang="en">Adapt cyber attacks based on detailed surveillance.</name>
+			<description lang="en">Adversary adapts behavior in response to surveillance and organizational security measures.</description>
+		</threat>
+
+	</threat-group>
+
+	<threat-group id="nist800-31r1:tg008" adversary="y">
+		<name lang="en">Coordinate a campaign.</name>
+
+		<threat id="nist800-31r1:t0079">
+			<name lang="en">Coordinate a campaign of multi-staged attacks (e.g., hopping).</name>
+			<description lang="en">Adversary moves the source of malicious commands or actions from one compromised information system to another, making analysis difficult.</description>
+		</threat>
+
+		<threat id="nist800-31r1:t0080">
+			<name lang="en">Coordinate a campaign that combines internal and external attacks across multiple information systems and information technologies.</name>
+			<description lang="en">Adversary combines attacks that require both physical presence within organizational facilities and cyber methods to achieve success. Physical attack steps may be as simple as convincing maintenance personnel to leave doors or cabinets open.</description>
+		</threat>
+
+		<threat id="nist800-31r1:t0081">
+			<name lang="en">Coordinate campaigns across multiple organizations to acquire specific information or achieve desired outcome.</name>
+			<description lang="en">Adversary does not limit planning to the targeting of one organization. Adversary observes multiple organizations to acquire necessary information on targets of interest.</description>
+		</threat>
+
+		<threat id="nist800-31r1:t0082">
+			<name lang="en">Coordinate a campaign that spreads attacks across organizational systems from existing presence.</name>
+			<description lang="en">Adversary uses existing presence within organizational systems to extend the adversary’s span of control to other organizational systems including organizational infrastructure. Adversary thus is in position to further undermine organizational ability to carry out missions/business functions.</description>
+		</threat>
+
+		<threat id="nist800-31r1:t0083">
+			<name lang="en">Coordinate a campaign of continuous, adaptive, and changing cyber attacks based on detailed surveillance.</name>
+			<description lang="en">Adversary attacks continually change in response to surveillance and organizational security measures.</description>
+		</threat>
+
+		<threat id="nist800-31r1:t0084">
+			<name lang="en">Coordinate cyber attacks using external (outsider), internal (insider), and supply chain (supplier) attack vectors. </name>
+			<description lang="en">Adversary employs continuous, coordinated attacks, potentially using all three attack vectors for the purpose of impeding organizational operations.</description>
+		</threat>
+
+	</threat-group>
+
+	<threat-group id="nist800-31r1:tg1000" adversary="n">
+		<name lang="en">Non-adversarial threat events</name>
+
+		<threat id="nist800-31r1:t1000">
+			<name lang="en">Spill sensitive information</name>
+			<description lang="en">Authorized user erroneously contaminates a device, information system, or network by placing on it or sending to it information of a classification/sensitivity which it has not been authorized to handle. The information is exposed to access by unauthorized individuals, and as a result, the device, system, or network is unavailable while the spill is investigated and mitigated.</description>
+		</threat>
+
+		<threat id="nist800-31r1:t1001">
+			<name lang="en">Mishandling of critical and/or sensitive information by authorized users </name>
+			<description lang="en">Authorized privileged user inadvertently exposes critical/sensitive information.</description>
+		</threat>
+
+		<threat id="nist800-31r1:t1002">
+			<name lang="en">Incorrect privilege settings</name>
+			<description lang="en">Authorized privileged user or administrator erroneously assigns a user exceptional privileges or sets privilege requirements on a resource too low.</description>
+		</threat>
+
+		<threat id="nist800-31r1:t1003">
+			<name lang="en">Communications contention</name>
+			<description lang="en">Degraded communications performance due to contention.</description>
+		</threat>
+
+		<threat id="nist800-31r1:t1004">
+			<name lang="en">Unreadable display</name>
+			<description lang="en">Display unreadable due to aging equipment.</description>
+		</threat>
+
+		<threat id="nist800-31r1:t1005">
+			<name lang="en">Earthquake at primary facility</name>
+			<description lang="en">Earthquake of organization-defined magnitude at primary facility makes facility inoperable.</description>
+		</threat>
+
+		<threat id="nist800-31r1:t1006">
+			<name lang="en">Fire at primary facility</name>
+			<description lang="en">Fire (not due to adversarial activity) at primary facility makes facility inoperable.</description>
+		</threat>
+
+		<threat id="nist800-31r1:t1007">
+			<name lang="en">Fire at backup facility</name>
+			<description lang="en">Fire (not due to adversarial activity) at backup facility makes facility inoperable or destroys backups of software, configurations, data, and/or logs.</description>
+		</threat>
+
+		<threat id="nist800-31r1:t1008">
+			<name lang="en">Flood at primary facility </name>
+			<description lang="en">Flood (not due to adversarial activity) at primary facility makes facility inoperable.</description>
+		</threat>
+
+		<threat id="nist800-31r1:t1009">
+			<name lang="en">Flood at backup facility</name>
+			<description lang="en">Flood (not due to adversarial activity) at backup facility makes facility inoperable or destroys backups of software, configurations, data, and/or logs.</description>
+		</threat>
+
+		<threat id="nist800-31r1:t1010">
+			<name lang="en">Hurricane at primary facility </name>
+			<description lang="en">Hurricane of organization-defined strength at primary facility makes facility inoperable.</description>
+		</threat>
+
+		<threat id="nist800-31r1:t1011">
+			<name lang="en">Hurricane at backup facility</name>
+			<description lang="en">Hurricane of organization-defined strength at backup facility makes facility inoperable or destroys backups of software, configurations, data, and/or logs.</description>
+		</threat>
+
+		<threat id="nist800-31r1:t1012">
+			<name lang="en">Resource depletion</name>
+			<description lang="en">Degraded processing performance due to resource depletion.</description>
+		</threat>
+
+		<threat id="nist800-31r1:t1013">
+			<name lang="en">Introduction of vulnerabilities into software products </name>
+			<description lang="en">Due to inherent weaknesses in programming languages and software development environments, errors and vulnerabilities are introduced into commonly used software products.</description>
+		</threat>
+
+		<threat id="nist800-31r1:t1014">
+			<name lang="en">Disk error</name>
+			<description lang="en">Corrupted storage due to a disk error.</description>
+		</threat>
+
+		<threat id="nist800-31r1:t1015">
+			<name lang="en">Pervasive disk error</name>
+			<description lang="en">Multiple disk errors due to aging of a set of devices all acquired at the same time, from the same supplier.</description>
+		</threat>
+
+		<threat id="nist800-31r1:t1016">
+			<name lang="en">Windstorm/tornado at primary facility </name>
+			<description lang="en">Windstorm/tornado of organization-defined strength at primary facility makes facility inoperable.</description>
+		</threat>
+
+		<threat id="nist800-31r1:t1017">
+			<name lang="en">Windstorm/tornado at backup facility</name>
+			<description lang="en">Windstorm/tornado of organization-defined strength at backup facility makes facility inoperable or destroys backups of software, configurations, data, and/or logs.</description>
+		</threat>
+
+	</threat-group>
+
+</threat-catalog>

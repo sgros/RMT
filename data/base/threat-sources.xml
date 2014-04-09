@@ -1,0 +1,222 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<!--
+	This file/database contains general information about threat, i.e.
+	threat source, threats and scales for measuring threats. It doesn't
+	contain any specific threats from real life.
+
+	This is publicly available information taken from NIST 800-30r1.
+
+	The hierarcy, or specializatoin, of threat sources implies inheritance. 
+	In other words, if some information source identifies threat source
+	coming from adversary, that actually means that this information
+	source's threats are equaly valid for all inherited information
+	sources.
+     
+-->
+
+<threat-sources>
+
+	<threat-source id="ts00001" adversarial="y">
+
+		<name lang="en">Adversarial</name>
+
+		<description lang="en">
+		Individuals, groups, organizations, or states that seek to exploit the organization’s dependence on cyber resources (i.e., information in electronic form, information and communications technologies, and the communications and information-handling capabilities provided by those technologies). 
+		</description>
+
+		<threat-source id="ts00002" adversarial="y">
+			<name lang="en">Individual</name>
+			<name lang="hr">Pojedinac</name>
+
+			<threat-source id="ts00003">
+				<name lang="en">Outsider</name>
+			</threat-source>
+			<threat-source id="ts00004">
+				<name lang="en">Insider</name>
+			</threat-source>
+			<threat-source id="ts00005">
+				<name lang="en">Trusted Insider</name>
+			</threat-source>
+			<threat-source id="ts00006">
+				<name lang="en">Privileged Insider</name>
+			</threat-source>
+			<threat-source id="ts00007">
+				<name lang="en">Client</name>
+			</threat-source>
+		</threat-source>
+
+		<threat-source id="ts00008" adversarial="y">
+			<name lang="en">Group</name>
+			<name lang="hr">Grupa</name>
+			<threat-source id="ts00009">
+				<name lang="en">Ad Hoc Group</name>
+				<name lang="hr">Ad Hoc Grupa</name>
+			</threat-source>
+		</threat-source>
+
+		<threat-source id="ts00011" adversarial="y">
+			<name lang="en">Group</name>
+			<name lang="hr">Grupa</name>
+			<threat-source id="ts00012">
+				<name lang="en">Competitor</name>
+			</threat-source>
+			<threat-source id="ts00013">
+				<name lang="en">Suplier</name>
+			</threat-source>
+			<threat-source id="ts00014">
+				<name lang="en">Partner</name>
+			</threat-source>
+			<threat-source id="ts00015">
+				<name lang="en">Consumer</name>
+			</threat-source>
+		</threat-source>
+
+		<threat-source id="ts00016">
+			<name lang="en">Nation-state</name>
+			<name lang="hr">Država</name>
+		</threat-source>
+
+	</threat-source>
+
+	<threat-source id="ts00017" adversarial="n">
+		<name lang="en">Accidental</name>
+		<description lang="en">Erroneous actions taken by individuals in the course of executing their everyday responsibilities.</description>
+
+		<threat-source id="ts00018">
+			<name lang="en">User</name>
+		</threat-source>
+
+		<threat-source id="ts00019">
+			<name lang="en">Priviledged User/Administrator</name>
+		</threat-source>
+
+	</threat-source>
+
+	<threat-source id="ts00021" adversarial="n">
+		<name lang="en">Structural</name>
+		<description lang="en">Failures of equipment, environmental controls, or software due to aging, resource depletion, or other circumstances which exceed expected operating parameters.</description>
+
+		<threat-source id="ts00022">
+			<name lang="en">Information Technology (IT) Equipment</name>
+
+			<threat-source id="ts00023">
+				<name lang="en">Information Technology (IT) Equipment</name>
+			</threat-source>
+
+			<threat-source id="ts00024">
+				<name lang="en">Storage</name>
+			</threat-source>
+
+			<threat-source id="ts00025">
+				<name lang="en">Processing</name>
+			</threat-source>
+
+			<threat-source id="ts00026">
+				<name lang="en">Communications</name>
+			</threat-source>
+
+			<threat-source id="ts00027">
+				<name lang="en">Display</name>
+			</threat-source>
+
+			<threat-source id="ts00028">
+				<name lang="en">Sensor</name>
+			</threat-source>
+
+			<threat-source id="ts00029">
+				<name lang="en">Controller</name>
+			</threat-source>
+
+		</threat-source>
+
+		<threat-source id="ts00030">
+			<name lang="en">Environmental Controls</name>
+
+			<threat-source id="ts00031">
+				<name lang="en">Temperature/Humidity Controls</name>
+			</threat-source>
+
+			<threat-source id="ts00032">
+				<name lang="en">Power Supply</name>
+			</threat-source>
+		</threat-source>
+
+		<threat-source id="ts00033">
+			<name lang="en">Software</name>
+
+			<threat-source id="ts00034">
+				<name lang="en">Operating System</name>
+			</threat-source>
+
+			<threat-source id="ts00035">
+				<name lang="en">Networking</name>
+			</threat-source>
+
+			<threat-source id="ts00036">
+				<name lang="en">General-Purpose Application</name>
+			</threat-source>
+
+			<threat-source id="ts00037">
+				<name lang="en">Mission-Specific Application</name>
+			</threat-source>
+		</threat-source>
+
+	</threat-source>
+
+	<threat-source id="ts00038" adversarial="n">
+		<name lang="en">Environmental</name>
+		<description lang="en">Natural disasters and failures of critical infrastructures on which the organization depends, but which are outside the control of the organization.  Note: Natural and man-made disasters can also be characterized in terms of their severity and/or duration.  However, because the threat source and the threat event are strongly identified, severity and duration can be included in the description of the threat event (e.g., Category 5 hurricane causes extensive damage to the facilities housing mission-critical systems, making those systems unavailable for three weeks).</description>
+
+		<threat-source id="ts00039">
+			<name lang="en">Natural or man-made disaster</name>
+
+			<threat-source id="ts00040">
+				<name lang="en">Fire</name>
+			</threat-source>
+
+			<threat-source id="ts00041">
+				<name lang="en">Flood/Tsunami</name>
+			</threat-source>
+
+			<threat-source id="ts00042">
+				<name lang="en">Windstorm/Tornado</name>
+			</threat-source>
+
+			<threat-source id="ts00043">
+				<name lang="en">Hurricane</name>
+			</threat-source>
+
+			<threat-source id="ts00044">
+				<name lang="en">Earthquake</name>
+			</threat-source>
+
+			<threat-source id="ts00045">
+				<name lang="en">Bombing</name>
+			</threat-source>
+
+			<threat-source id="ts00046">
+				<name lang="en">Overrun</name>
+			</threat-source>
+
+		</threat-source>
+
+		<threat-source id="ts00047">
+			<name lang="en">Unusual Natural Event</name>
+		</threat-source>
+
+		<threat-source id="ts00048">
+			<name lang="en">Infrastructure Failure/Outage</name>
+
+			<threat-source id="ts00049">
+				<name lang="en">Telecommunications</name>
+			</threat-source>
+
+			<threat-source id="ts00050">
+				<name lang="en">Electrical Power</name>
+			</threat-source>
+		</threat-source>
+
+	</threat-source>
+
+</threat-sources>

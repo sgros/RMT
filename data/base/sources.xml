@@ -1,0 +1,343 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<!--
+    Sources of information for risk assessment
+
+    This is the basic element of a risk management system. "Information source"
+    is anything that can provide information relevant for a risk assessment and
+    management.
+
+    Each information source is analyzed in order to identify:
+
+	1. Threat sources
+	2. Threats
+	3. Resources endangered by threats.
+	4. Vulnerabilities
+	5. Resources with a given vulnerabilities.
+	6. Measures that allow quantification.
+
+    Basically, with all those informations, we are talking about risks. So, in some
+    way information sources identify risks.
+
+    But, not all information sources will provide every possible bit of information
+    necessary for risk identification. In such cases, analysis of the information
+    source should be conducted and necessary information pulled from the catalogs.
+
+    Obviously, there is no much gain if everything is done that way. But, the
+    general idea is information sources will be codified into machine readable
+    form and eventually, everyone using this system will be able to pull
+    readily available information from the other people and companies doing
+    analysis of information sources and/or doing risk assessment. Furhtermore,
+    there are lot of existing, machine readable sources, that should be included
+    into risk assessment, i.e. NVD, OVAL, SCAP, ...
+
+    THREATS
+    =======
+
+    Each identified threat should have the following information associated with it:
+
+    VULNERABILITIES
+    ===============
+    Vulnerabilities are characterized by their severity. One possibility is to use
+    the following scale based on CVSS exploitability score:
+
+	Metric value		Description
+	Unproven (U)		No exploit code is available, or an exploit is entirely theoretical.
+	Proof-of-Concept (POC)	Proof-of-concept exploit code or an attack demonstration
+				that is not practical for most systems is available.
+				The code or technique is not functional in all situations
+				and may require substantial modification by a skilled attacker.
+	Functional (F)		Functional exploit code is available. The code works in most
+				situations where the vulnerability exists.
+	High (H)		Either the vulnerability is exploitable by functional mobile autonomous
+				code, or no exploit is required (manual trigger) and details are
+				widely available. The code works in every situation, or is actively
+				being delivered via a mobile autonomous agent (such as a worm or virus).
+
+    For the purpose of this risk assessment process, the following scale is selected:
+
+	Kritičnost ranjivosti (V)	Opis
+	10, 9 (vrlo visoka)		Ranjivost može iskoristiti bilo tko s minimalnim resursima.
+	8, 7 (visoka)			Ranjivost može iskoristiti bilo tko korištenjem osrednjih resursa.
+	6, 5 (srednja)			Ranjivost može iskoristiti bilo tko s utroškom značajnih  resursa.
+	4, 3 (niska)			Iskorištavanje ranjivosti zahtijeva specijalne uvijete i/ili izuzetno veliku količinu resursa.
+	2, 1 (vrlo niska)		Iskorištavanje ranjivosti je u ovom trenutku teorijsko.
+
+
+    VOĐENJE EVIDENCIJE O PROMJENAMA
+    ===============================
+
+    Vođenje evidencije o promjenama se obavlja upotrebom <changelogs> elementa.
+
+    Unutar <changelogs> elemenata nalazi se niz <changelog> elemenata, po jedan za
+    svaku promjenu. Element <changelog> ima sljedeće atribute:
+
+	date	Vrijeme kada je napravljena nekakva akcija
+	user	Tko je napravio promjenu
+
+    U sadržaju elementa je opis promjene.
+
+
+    DESCRIPTION OF XML FORMAT
+    =========================
+
+    Mandatory elements, and associated attributes:
+
+    <information_sources>
+
+		The element that contains the whole XML document/database.
+
+	<information_source>
+
+		Each information source is described, contained in, this element. The
+		attributes are:
+
+		@id		ID of this element. In the future it should/could be hash
+				of the element and its content. Alternatively, when XPath/XLink
+				are introduced it may be something else.
+
+		@type		Type of the element source. It determines additional, type
+				specific elements, present in the element. The currently
+				used/defined values are:
+
+				internal_report
+					Some organization internally generated report.
+
+				sysaid
+					Information coming from the interna help desk system.
+
+		@classification_level
+				Classification level according to the company's internal
+				classification regulations for for information technology.
+
+
+		<title>
+
+		<url>
+
+		<description>
+
+			@lang
+
+	<risks>
+
+		Element that holds all the risks relevant information identified by
+		this information source.
+
+		<risk>
+
+	<changelogs>
+
+		<changelog>
+
+			@date
+
+			@user
+
+    Elements that depend on the information source type, and associated attributes:
+
+	<inernal_report>
+		Identifies internal reports of a company.
+
+		@id 		Report identifier according to the internal mechanisms
+				used for the id assignment process.
+
+		@date		Date when report was issued/formally approved.
+
+		@@classification_level	
+				Classification level according to the company's internal
+				classification regulations for for information technology.
+
+-->
+
+<information_sources>
+
+	<information_source id="isp00005" type="webpage" date="20130913">
+		<title lang="hr">Krađa novaca iz AKD</title>
+		<url>http://www.jutarnji.hr/iz-republike-srpske-provalili-sustav-najcuvanije-hrvatske-agencije-i-ukrali-1-8-milijuna-/1126010/</url>
+
+		<threat-sources>
+			<threat-source id="ts00052">
+				<name lang="en">Organized hacker group in Bosnia</name>
+				<description lang="en">The group that is in a relative proximity of the target. I.e., in the same town, country, or surrounding countries.</description>
+			</threat-source>
+		</threat-sources>
+
+		<risks>
+			<risk resource-id="r30006">
+				<threats>
+					<threat threat-source-id="ts00052" threat-id="nist800-31r1:t0008" impact="8" />
+					<threat threat-source-id="ts00052" threat-id="nist800-31r1:t0015" impact="8" />
+					<threat threat-source-id="ts00052" threat-id="nist800-31r1:t0018" impact="8" />
+					<threat threat-source-id="ts00052" threat-id="nist800-31r1:t0019" impact="8" />
+					<threat threat-source-id="ts00052" threat-id="nist800-31r1:t0040" impact="8" />
+					<threat threat-source-id="ts00052" threat-id="nist800-31r1:t0041" impact="8" />
+					<threat threat-source-id="ts00052" threat-id="nist800-31r1:t0060" impact="8" />
+					<threat threat-source-id="ts00052" threat-id="nist800-31r1:t0065" impact="8" />
+				</threats>
+			</risk>
+		</risks>
+        </information_source>
+
+	<information_source id="isp00004" type="webpage" subid="" date="20140328">
+		<title lang="en">Upozorenje svim vlasnicima računala u Hrvatskoj</title>
+		<url>http://www.tportal.hr/scitech/tehno/324116/Bankari-izdali-upozorenje-vlasnicima-racunala-u-Hrvatskoj.html</url>
+		<description lang="hr">
+
+		</description>
+		<!--
+			TODO: This information source identifies new threat source. Every new identified
+			threat source has to be defined in information source that was the identification.
+		-->
+
+		<threat-sources>
+			<threat-source id="ts00051">
+				<name lang="en">Hacker group in Croatia</name>
+				<description lang="en">The group that is in a relative proximity of the target. I.e., in the same town, country, or surrounding countries.</description>
+			</threat-source>
+		</threat-sources>
+
+		<risks>
+			<threats resource-id="r30006">
+				<threat threat-source-id="ts00051" threat-id="nist800-31r1:t0008" threat-source-relevance="7" impact="5">
+					<description lang="en">This attack specifically targeted clients of Croatian banks.</description>
+				</threat>
+				<threat threat-source-id="ts00051" threat-id="nist800-31r1:t0013" threat-source-relevance="7" impact="5" />
+				<threat threat-source-id="ts00051" threat-id="nist800-31r1:t0014" threat-source-relevance="7" impact="5" />
+				<threat threat-source-id="ts00051" threat-id="nist800-31r1:t0015" threat-source-relevance="7" impact="5" />
+				<threat threat-source-id="ts00051" threat-id="nist800-31r1:t0016" threat-source-relevance="7" impact="5" />
+				<threat threat-source-id="ts00051" threat-id="nist800-31r1:t0018" threat-source-relevance="7" impact="5" />
+				<threat threat-source-id="ts00051" threat-id="nist800-31r1:t0019" threat-source-relevance="7" impact="5" />
+				<threat threat-source-id="ts00051" threat-id="nist800-31r1:t0039" threat-source-relevance="7" impact="5" />
+				<threat threat-source-id="ts00051" threat-id="nist800-31r1:t0040" threat-source-relevance="7" impact="5" />
+				<threat threat-source-id="ts00051" threat-id="nist800-31r1:t0041" threat-source-relevance="7" impact="5" />
+			</threats>
+		</risks>
+	</information_source>
+
+	<information_source id="isp00003" type="webpage" subid="" date="20131230">
+		<title lang="en">Cash machines raided with infected USB sticks</title>
+		<url>http://www.bbc.co.uk/news/technology-25550512</url>
+
+		<risks>
+			<risk resource-id="r00162">
+				<threats>
+					<threat threat-source-id="ts00001" threat-id="nist800-31r1:t0008" threat-source-relevance="7" impact="5" />
+					<threat threat-source-id="ts00001" threat-id="nist800-31r1:t0013" threat-source-relevance="7" impact="5" />
+					<threat threat-source-id="ts00001" threat-id="nist800-31r1:t0014" threat-source-relevance="7" impact="5" />
+					<threat threat-source-id="ts00001" threat-id="nist800-31r1:t0015" threat-source-relevance="7" impact="5" />
+					<threat threat-source-id="ts00001" threat-id="nist800-31r1:t0016" threat-source-relevance="7" impact="5" />
+					<threat threat-source-id="ts00001" threat-id="nist800-31r1:t0018" threat-source-relevance="7" impact="5" />
+					<threat threat-source-id="ts00001" threat-id="nist800-31r1:t0019" threat-source-relevance="7" impact="5" />
+					<threat threat-source-id="ts00001" threat-id="nist800-31r1:t0039" threat-source-relevance="7" impact="5" />
+					<threat threat-source-id="ts00001" threat-id="nist800-31r1:t0040" threat-source-relevance="7" impact="5" />
+					<threat threat-source-id="ts00001" threat-id="nist800-31r1:t0041" threat-source-relevance="7" impact="5" />
+				</threats>
+			</risk>
+		</risks>
+	</information_source>
+
+	<information_source id="isp00002" type="microsoft_advisory" date="20131008">
+		<title lang="en">Microsoft Security Bulletin MS13-083 - Critical</title>
+		<microsoft_advisory id="MS13-083" url="http://technet.microsoft.com/en-us/security/bulletin/ms13-083" />
+
+		<risks>
+			<risk resource-id="r00148">
+				<vulnerabilities>
+					<vulnerability vulnerability-id="bits:v0159" severity="9" />
+				</vulnerabilities>
+				<threats>
+					<threat threat-id="nist800-31r1:t0005" threat-source-id="ts00001" threat-source-relevance="9" probability="4" impact="9" />
+					<threat threat-id="nist800-31r1:t0008" threat-source-id="ts00001" threat-source-relevance="9" probability="4" impact="9" />
+					<threat threat-id="nist800-31r1:t0013" threat-source-id="ts00001" threat-source-relevance="9" probability="4" impact="9" />
+					<threat threat-id="nist800-31r1:t0014" threat-source-id="ts00001" threat-source-relevance="9" probability="4" impact="9" />
+					<threat threat-id="nist800-31r1:t0015" threat-source-id="ts00001" threat-source-relevance="9" probability="4" impact="9" />
+					<threat threat-id="nist800-31r1:t0016" threat-source-id="ts00001" threat-source-relevance="9" probability="4" impact="9" />
+					<threat threat-id="nist800-31r1:t0017" threat-source-id="ts00001" threat-source-relevance="9" probability="2" impact="9" />
+					<threat threat-id="nist800-31r1:t0018" threat-source-id="ts00001" threat-source-relevance="9" probability="4" impact="9" />
+					<threat threat-id="nist800-31r1:t0019" threat-source-id="ts00001" threat-source-relevance="9" probability="4" impact="9" />
+					<threat threat-id="nist800-31r1:t0040" threat-source-id="ts00001" threat-source-relevance="9" probability="4" impact="9" />
+					<threat threat-id="nist800-31r1:t0041" threat-source-id="ts00001" threat-source-relevance="9" probability="4" impact="9" />
+					<threat threat-id="nist800-31r1:t0062" threat-source-id="ts00001" threat-source-relevance="9" probability="4" impact="9" />
+					<threat threat-id="nist800-31r1:t0065" threat-source-id="ts00001" threat-source-relevance="9" probability="4" impact="9" />
+					<threat threat-id="nist800-31r1:t0066" threat-source-id="ts00001" threat-source-relevance="9" probability="4" impact="9" />
+				</threats>
+			</risk>
+		</risks>
+
+		<!-- Log history -->
+		<changelogs>
+			<changelog date="20140317" user="sgros@sistemnet.hr">Inicijalni unos.</changelog>
+		</changelogs>
+	</information_source>
+
+	<information_source id="isp00001" type="microsoft_advisory" date="20131008">
+		<title lang="en">Microsoft Security Bulletin MS13-081 - Critical</title>
+		<microsoft_advisory id="MS13-081" url="http://technet.microsoft.com/en-us/security/bulletin/ms13-081" />
+
+		<risks>
+			<risk resource-id="r00148">
+				<vulnerabilities>
+					<vulnerability vulnerability-id="bits:v0159" severity="9" />
+				</vulnerabilities>
+				<threats>
+					<threat threat-id="nist800-31r1:t0005" threat-source-id="ts00001" threat-source-relevance="9" probability="4" impact="9" />
+					<threat threat-id="nist800-31r1:t0008" threat-source-id="ts00001" threat-source-relevance="9" probability="4" impact="9" />
+					<threat threat-id="nist800-31r1:t0013" threat-source-id="ts00001" threat-source-relevance="9" probability="4" impact="9" />
+					<threat threat-id="nist800-31r1:t0014" threat-source-id="ts00001" threat-source-relevance="9" probability="4" impact="9" />
+					<threat threat-id="nist800-31r1:t0015" threat-source-id="ts00001" threat-source-relevance="9" probability="4" impact="9" />
+					<threat threat-id="nist800-31r1:t0016" threat-source-id="ts00001" threat-source-relevance="9" probability="4" impact="9" />
+					<threat threat-id="nist800-31r1:t0017" threat-source-id="ts00001" threat-source-relevance="9" probability="2" impact="9" />
+					<threat threat-id="nist800-31r1:t0018" threat-source-id="ts00001" threat-source-relevance="9" probability="4" impact="9" />
+					<threat threat-id="nist800-31r1:t0019" threat-source-id="ts00001" threat-source-relevance="9" probability="4" impact="9" />
+					<threat threat-id="nist800-31r1:t0040" threat-source-id="ts00001" threat-source-relevance="9" probability="4" impact="9" />
+					<threat threat-id="nist800-31r1:t0041" threat-source-id="ts00001" threat-source-relevance="9" probability="4" impact="9" />
+					<threat threat-id="nist800-31r1:t0062" threat-source-id="ts00001" threat-source-relevance="9" probability="4" impact="9" />
+					<threat threat-id="nist800-31r1:t0065" threat-source-id="ts00001" threat-source-relevance="9" probability="4" impact="9" />
+					<threat threat-id="nist800-31r1:t0066" threat-source-id="ts00001" threat-source-relevance="9" probability="4" impact="9" />
+				</threats>
+			</risk>
+		</risks>
+
+		<!-- Log history -->
+		<changelogs>
+			<changelog date="20140317" user="sgros@sistemnet.hr">Inicijalni unos.</changelog>
+		</changelogs>
+	</information_source>
+
+	<information_source id="isp00000" type="microsoft_advisory" date="20131008">
+		<title lang="en">Microsoft Security Bulletin MS13-080 - Critical</title>
+		<microsoft_advisory id="MS13-080" url="http://technet.microsoft.com/en-us/security/bulletin/ms13-080" />
+
+		<risks>
+			<risk resource-id="r00148">
+				<vulnerabilities>
+					<vulnerability vulnerability-id="bits:v0159" severity="9" />
+				</vulnerabilities>
+				<threats>
+					<threat threat-id="nist800-31r1:t0005" threat-source-id="ts00001" threat-source-relevance="9" probability="4" impact="9" />
+					<threat threat-id="nist800-31r1:t0008" threat-source-id="ts00001" threat-source-relevance="9" probability="4" impact="9" />
+					<threat threat-id="nist800-31r1:t0013" threat-source-id="ts00001" threat-source-relevance="9" probability="4" impact="9" />
+					<threat threat-id="nist800-31r1:t0014" threat-source-id="ts00001" threat-source-relevance="9" probability="4" impact="9" />
+					<threat threat-id="nist800-31r1:t0015" threat-source-id="ts00001" threat-source-relevance="9" probability="4" impact="9" />
+					<threat threat-id="nist800-31r1:t0016" threat-source-id="ts00001" threat-source-relevance="9" probability="4" impact="9" />
+					<threat threat-id="nist800-31r1:t0017" threat-source-id="ts00001" threat-source-relevance="9" probability="2" impact="9" />
+					<threat threat-id="nist800-31r1:t0018" threat-source-id="ts00001" threat-source-relevance="9" probability="4" impact="9" />
+					<threat threat-id="nist800-31r1:t0019" threat-source-id="ts00001" threat-source-relevance="9" probability="4" impact="9" />
+					<threat threat-id="nist800-31r1:t0040" threat-source-id="ts00001" threat-source-relevance="9" probability="4" impact="9" />
+					<threat threat-id="nist800-31r1:t0041" threat-source-id="ts00001" threat-source-relevance="9" probability="4" impact="9" />
+					<threat threat-id="nist800-31r1:t0062" threat-source-id="ts00001" threat-source-relevance="9" probability="4" impact="9" />
+					<threat threat-id="nist800-31r1:t0065" threat-source-id="ts00001" threat-source-relevance="9" probability="4" impact="9" />
+					<threat threat-id="nist800-31r1:t0066" threat-source-id="ts00001" threat-source-relevance="9" probability="4" impact="9" />
+				</threats>
+			</risk>
+		</risks>
+
+		<!-- Log history -->
+		<changelogs>
+			<changelog date="20140317" user="sgros@sistemnet.hr">Inicijalni unos.</changelog>
+		</changelogs>
+	</information_source>
+
+</information_sources>
+
